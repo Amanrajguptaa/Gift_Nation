@@ -3,7 +3,7 @@ import {v2 as cloudinary} from 'cloudinary';
 
 const addProduct= async(req,res)=>{
     try {
-        const{name,description,price,category,subCategory,bestSeller,discount} = req.body;
+        const{name,description,price,category,subCategory,subSubCategory,bestSeller,discount} = req.body;
 
         const image1 = req.files.image1[0]
         const image2 = req.files.image2[0]
@@ -26,6 +26,7 @@ const addProduct= async(req,res)=>{
             price:Number(price),
             category,
             subCategory,
+            subSubCategory,
             discount,
             bestSeller: bestSeller === "true" ? true : false ,
             images:imagesUrl,

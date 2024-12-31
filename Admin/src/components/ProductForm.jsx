@@ -4,29 +4,195 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 const categoriesData = [
   {
-    category: "mobile-accessories",
-    subCategories: ["Rope", "Stand", "Covers", "Cleaning Kit"],
+    category: 'Electronics and Gadgets',
+    subCategories: [
+      {
+        subCategory: 'Portable Electronics',
+        subSubCategories: ['Power Banks', 'Bluetooth Speakers', 'Earphones']
+      },
+      {
+        subCategory: 'Home Gadgets',
+        subSubCategories: ['Smart Plugs', 'Air Purifiers']
+      },
+      {
+        subCategory: 'Tech Accessories',
+        subSubCategories: ['Charging Cables', 'Laptop Stands', 'Wireless Chargers']
+      }
+    ]
   },
   {
-    category: "watch-accessories",
-    subCategories: ["Straps", "Dials"],
+    category: 'Office Essentials',
+    subCategories: [
+      {
+        subCategory: 'Stationery',
+        subSubCategories: ['Diaries', 'Notebooks', 'Sticky Notes']
+      },
+      {
+        subCategory: 'Organizers',
+        subSubCategories: ['Desk Organizers', 'Calendars']
+      },
+      {
+        subCategory: 'Writing Instruments',
+        subSubCategories: ['Premium Pens', 'Stylus Pens']
+      }
+    ]
   },
   {
-    category: "charger-accessories",
-    subCategories: ["Wireless", "Wired", "Braid Cables", "USB Tips"],
+    category: 'Drinkware',
+    subCategories: [
+      {
+        subCategory: 'Bottles',
+        subSubCategories: ['Stainless Steel', 'Vacuum Bottles', 'Copper Bottles']
+      },
+      {
+        subCategory: 'Mugs and Tumblers',
+        subSubCategories: ['Coffee Mugs', 'Insulated Tumblers']
+      },
+      {
+        subCategory: 'Gift Sets',
+        subSubCategories: ['Bottle and Mug Combos']
+      }
+    ]
   },
   {
-    category: "earbud-accessories",
-    subCategories: ["Case", "Rope", "Cleaning Kits"],
+    category: 'Apparel',
+    subCategories: [
+      {
+        subCategory: 'T-Shirts',
+        subSubCategories: ['Polo', 'Round Neck', 'Custom Printed']
+      },
+      {
+        subCategory: 'Jackets',
+        subSubCategories: ['Windcheaters', 'Hoodies']
+      },
+      {
+        subCategory: 'Uniforms',
+        subSubCategories: ['Corporate Branding Uniforms']
+      }
+    ]
   },
   {
-    category: "stand-accessories",
-    subCategories: ["Mobile Stand", "Car Stand"],
+    category: 'Awards and Recognition',
+    subCategories: [
+      {
+        subCategory: 'Trophies',
+        subSubCategories: ['Metal', 'Crystal', 'Wooden', 'Acrylic']
+      },
+      {
+        subCategory: 'Plaques',
+        subSubCategories: ['Customized Engravings']
+      },
+      {
+        subCategory: 'Certificates',
+        subSubCategories: ['Certificate Frames']
+      }
+    ]
   },
   {
-    category: "car-related-accessories",
-    subCategories: ["Mounts", "Chargers"],
+    category: 'Food and Beverages',
+    subCategories: [
+      {
+        subCategory: 'Gourmet',
+        subSubCategories: ['Dry Fruits']
+      },
+      {
+        subCategory: 'Sweets and Chocolates',
+        subSubCategories: ['Chocolates', 'Indian Sweets']
+      },
+      {
+        subCategory: 'Gift Hampers',
+        subSubCategories: ['Curated Sweets & Chocolate Hampers']
+      }
+    ]
   },
+  {
+    category: 'Eco-Friendly Products',
+    subCategories: [
+      {
+        subCategory: 'Reusable Items',
+        subSubCategories: ['Bamboo Products', 'Cloth Bags']
+      },
+      {
+        subCategory: 'Sustainable Gifts',
+        subSubCategories: ['Seed Paper Stationery', 'Jute Items']
+      },
+      {
+        subCategory: 'Green Hampers',
+        subSubCategories: ['Planters', 'Organic Kits']
+      }
+    ]
+  },
+  {
+    category: 'Premium Gifts',
+    subCategories: [
+      {
+        subCategory: 'Luxury Items',
+        subSubCategories: ['Branded Wallets', 'Watches']
+      },
+      {
+        subCategory: 'Designer Brands',
+        subSubCategories: ['Premium Pens', 'Leather Accessories']
+      },
+      {
+        subCategory: 'High-End Combos',
+        subSubCategories: ['Exclusive Hampers']
+      }
+    ]
+  },
+  {
+    category: 'Bags & Luggage',
+    subCategories: [
+      {
+        subCategory: 'Duffle Bags',
+        subSubCategories: []
+      },
+      {
+        subCategory: 'Executive Trolley Bags',
+        subSubCategories: []
+      },
+      {
+        subCategory: 'Backpack Bags',
+        subSubCategories: []
+      },
+      {
+        subCategory: 'Laptop Bags',
+        subSubCategories: []
+      },
+      {
+        subCategory: 'Sling Bags',
+        subSubCategories: []
+      },
+      {
+        subCategory: 'Fanny Packs',
+        subSubCategories: []
+      },
+      {
+        subCategory: 'Gym Bags',
+        subSubCategories: []
+      },
+      {
+        subCategory: 'Waist Pouch',
+        subSubCategories: []
+      }
+    ]
+  },
+  {
+    category: 'Event and Seasonal Gifts',
+    subCategories: [
+      {
+        subCategory: 'Festival-Specific',
+        subSubCategories: ['Diwali Diyas', 'Christmas Ornaments', 'Holi Colors']
+      },
+      {
+        subCategory: 'New Year Gifts',
+        subSubCategories: ['Calendars', 'Year Planners', 'Desk Organizers']
+      },
+      {
+        subCategory: 'Thank-You Gifts',
+        subSubCategories: ['Greeting Cards', 'Custom Hampers']
+      }
+    ]
+  }
 ];
 
 const ProductForm = ({ token }) => {
@@ -37,6 +203,7 @@ const ProductForm = ({ token }) => {
   const [discount, setDiscount] = useState("");
   const [category, setCategory] = useState("");
   const [subCategory, setSubCategory] = useState("");
+  const [subSubCategory, setSubSubCategory] = useState("");
   const [bestSeller, setBestSeller] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -44,6 +211,29 @@ const ProductForm = ({ token }) => {
     const selectedCategory = e.target.value;
     setCategory(selectedCategory);
     setSubCategory("");
+    setSubSubCategory("");
+  };
+
+  const handleSubCategoryChange = (e) => {
+    const selectedSubCategory = e.target.value;
+    setSubCategory(selectedSubCategory);
+    setSubSubCategory("");
+  };
+
+  const getSubCategories = () => {
+    const selectedCategoryData = categoriesData.find(
+      (cat) => cat.category === category
+    );
+    return selectedCategoryData ? selectedCategoryData.subCategories : [];
+  };
+
+  const getSubSubCategories = () => {
+    const selectedSubCategoryData = getSubCategories().find(
+      (subCat) => subCat.subCategory === subCategory
+    );
+    return selectedSubCategoryData
+      ? selectedSubCategoryData.subSubCategories
+      : [];
   };
 
   const onSubmitHandler = async (e) => {
@@ -58,6 +248,7 @@ const ProductForm = ({ token }) => {
       formData.append("discount", discount);
       formData.append("category", category);
       formData.append("subCategory", subCategory);
+      formData.append("subSubCategory", subSubCategory);
       formData.append("bestSeller", bestSeller);
       images.forEach((image, index) => {
         if (image) formData.append(`image${index + 1}`, image);
@@ -76,16 +267,9 @@ const ProductForm = ({ token }) => {
     }
   };
 
-  const getSubCategories = () => {
-    const selectedCategoryData = categoriesData.find(
-      (cat) => cat.category === category
-    );
-    return selectedCategoryData ? selectedCategoryData.subCategories : [];
-  };
-
   return (
-    <div className=" bg-white shadow-lg p-8 border border-gray-200 rounded-lg my-8">
-      <h2 className="text-3xl font-bold text-black mb-8 text-center  tracking-wide">
+    <div className="bg-white shadow-lg p-8 border border-gray-200 rounded-lg my-8">
+      <h2 className="text-3xl font-bold text-black mb-8 text-center tracking-wide">
         Add New Product
       </h2>
       <form
@@ -166,7 +350,7 @@ const ProductForm = ({ token }) => {
             <select
               name="subCategory"
               value={subCategory}
-              onChange={(e) => setSubCategory(e.target.value)}
+              onChange={handleSubCategoryChange}
               className="mt-1 block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
               required
             >
@@ -174,8 +358,30 @@ const ProductForm = ({ token }) => {
                 Select Sub-Category
               </option>
               {getSubCategories().map((subCat, index) => (
-                <option key={index} value={subCat}>
-                  {subCat}
+                <option key={index} value={subCat.subCategory}>
+                  {subCat.subCategory}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 pb-1">
+              Sub-SubCategory
+            </label>
+            <select
+              name="subSubCategory"
+              value={subSubCategory}
+              onChange={(e) => setSubSubCategory(e.target.value)}
+              className="mt-1 block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
+              required
+            >
+              <option value="" disabled>
+                Select Sub-SubCategory
+              </option>
+              {getSubSubCategories().map((subSubCat, index) => (
+                <option key={index} value={subSubCat}>
+                  {subSubCat}
                 </option>
               ))}
             </select>
