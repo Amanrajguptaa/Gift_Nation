@@ -64,7 +64,7 @@ const ProductForm = ({ token }) => {
       });
 
       const response = await axios.post(
-        "http://localhost:8000/api/product/add-product",
+        "https://gift-nation.onrender.com/api/product/add-product",
         formData,
         { headers: { token } }
       );

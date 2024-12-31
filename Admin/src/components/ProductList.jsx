@@ -7,7 +7,7 @@ const ProductList = ({ token }) => {
 
   const getData = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/product/list-product');
+      const response = await axios.get('https://gift-nation.onrender.com/api/product/list-product');
       console.log(response.data.products);
       setProducts(response.data.products);
     } catch (error) {
