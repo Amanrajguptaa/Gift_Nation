@@ -171,7 +171,8 @@ const editProduct = async (req, res) => {
 
 const removeProduct = async(req,res)=>{
     try {
-       await productModel.findByIdAndDelete(req.body.id) 
+      const { productId } = req.params;
+       await productModel.findByIdAndDelete(productId) 
        res.json({
         success:true,
         message:"Product Removed"
