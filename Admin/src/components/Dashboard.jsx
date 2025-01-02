@@ -44,17 +44,17 @@ const Dashboard = ({ token }) => {
         </div>
 
         <div className="bg-white shadow-lg rounded-lg p-8 text-center border-2 border-gray-200 hover:shadow-2xl transform hover:scale-105 transition-all">
-          <div className="text-6xl font-bold text-[#353333] mb-2">₹{totalRevenue}</div>
+          <div className="text-6xl font-bold text-[#353333] mb-2">₹{0}</div>
           <div className="text-sm font-medium text-gray-600 uppercase">Total Revenue</div>
         </div>
 
         <div className="bg-white shadow-lg rounded-lg p-8 text-center border-2 border-gray-200 hover:shadow-2xl transform hover:scale-105 transition-all">
-          <div className="text-6xl font-bold text-[#353333] mb-2">{activeUsers}</div>
+          <div className="text-6xl font-bold text-[#353333] mb-2">{0}</div>
           <div className="text-sm font-medium text-gray-600 uppercase">Active Users</div>
         </div>
 
         <div className="bg-white shadow-lg rounded-lg p-8 text-center border-2 border-gray-200 hover:shadow-2xl transform hover:scale-105 transition-all">
-          <div className="text-6xl font-bold text-[#353333] mb-2">{newOrders}</div>
+          <div className="text-6xl font-bold text-[#353333] mb-2">{0}</div>
           <div className="text-sm font-medium text-gray-600 uppercase">New Orders</div>
         </div>
       </div>
