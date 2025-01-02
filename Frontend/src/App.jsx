@@ -1,57 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
-import SignUp from "./components/SignUp";
-import Login from "./components/Login";
-import ProductPage from "./components/ProductPage";
-import Products from "./components/Products";
-import Home from "./pages/Home.jsx";
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
-import Category from "./pages/Category.jsx";
-import Profile from "./components/Profile.jsx";
-import Cart from "./components/Cart.jsx";
-import LimitedEdition from "./pages/LimitedEdition.jsx";
-import Checkout from "./pages/Checkout.jsx";
+import React from "react";
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
+import FeatureCardsSection from "./Components/FeatureCardsSection/FeatureCardsSection";
+import FeaturedCategoriesSection from "./Components/FeaturedCategoriesSection/FeaturedCategoriesSection";
+import SectionByLabel from "./Components/SectionByLabel/SectionByLabel";
+import CtaBannerSection from "./Components/CtaBannerSection/CtaBannerSection";
+import GiftFinder from "./Components/GiftFinder/GiftFinder";
+import HeroSection from "./Components/HeroSection/HeroSection";
 
 const App = () => {
-  const [token, setToken] = useState("");
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const storedToken = localStorage.getItem("token");
-    setToken(storedToken);
-  }, []);
-
-  const handleLogin = (newToken) => {
-    localStorage.setItem("token", newToken);
-    setToken(newToken);
-    navigate("/");
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    setToken("");
-    navigate("/sign-up");
-  };
-
   return (
-    <div>
+    <>
       <Header />
-      <Routes>
-          <>
-            <Route path="/" element={<Home />} />
-            <Route path="/product" element={<Products />} />
-            <Route path="/product/:productId" element={<ProductPage />} />
-            <Route path="/category/:categoryText" element={<Category />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/limited-edition" element={<LimitedEdition />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </>
-      </Routes>
+      <HeroSection/>
+      <FeatureCardsSection />
+      <FeaturedCategoriesSection />
+      <SectionByLabel />
+      <CtaBannerSection/>
+      <SectionByLabel />
+      <GiftFinder/>
+      <SectionByLabel />
+      <CtaBannerSection/>
+      <SectionByLabel />
       <Footer />
-    </div>
+    </>
   );
 };
 
