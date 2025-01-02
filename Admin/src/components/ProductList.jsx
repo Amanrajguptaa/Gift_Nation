@@ -8,7 +8,9 @@ const ProductList = ({ token }) => {
 
   const getData = async () => {
     try {
-      const response = await axios.get('https://gift-nation.onrender.com/api/product/list-product');
+      const response = await axios.get(
+        'https://gift-nation.onrender.com/api/product/list-product'
+      );
       setProducts(response.data.products);
     } catch (error) {
       console.error(error);
@@ -70,13 +72,16 @@ const ProductList = ({ token }) => {
   const handleDeleteClick = async (id) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
-        const response = await axios.delete(`https://gift-nation.onrender.com/api/product/remove/${id}`, {
-          headers: { token },
-        });
+        const response = await axios.delete(
+          `https://gift-nation.onrender.com/api/product/remove/${id}`,
+          {
+            headers: { token },
+          }
+        );
 
         if (response.data.success) {
           alert('Product deleted successfully!');
-          getData(); // Refresh product list
+          getData();
         } else {
           alert(response.data.message);
         }
@@ -92,8 +97,10 @@ const ProductList = ({ token }) => {
   }, []);
 
   return (
-    <div className="bg-white shadow-lg py-8 px-6 border border-gray-200 rounded-lg mx-6 my-10">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">All Products</h2>
+    <div className="bg-white shadow-lg py-8 px-6 border border-gray-200 rounded-lg mx-6 my-10 relative">
+      <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+        All Products
+      </h2>
       {products.length === 0 ? (
         <p className="text-gray-500 text-center">No products available.</p>
       ) : (
@@ -101,24 +108,21 @@ const ProductList = ({ token }) => {
           <table className="w-full border-collapse bg-white">
             <thead className="bg-gray-600 text-white">
               <tr>
-                <th className="border border-gray-300 px-4 py-3 text-left">Edit</th>
-                <th className="border border-gray-300 px-4 py-3 text-left">Delete</th>
                 <th className="border border-gray-300 px-4 py-3 text-left">Image</th>
-                <th className="border border-gray-300 px-4 py-3 text-left">Product Name</th>
+                <th className="border border-gray-300 px-4 py-3 text-left">
+                  Product Name
+                </th>
                 <th className="border border-gray-300 px-4 py-3 text-left">Category</th>
-                <th className="border border-gray-300 px-4 py-3 text-left">Sub Category</th>
+                <th className="border border-gray-300 px-4 py-3 text-left">
+                  Sub Category
+                </th>
                 <th className="border border-gray-300 px-4 py-3 text-left">Price</th>
+                <th className="border border-gray-300 px-4 py-3 text-left">Actions</th>
               </tr>
             </thead>
             <tbody>
               {products.map((product, index) => (
                 <tr key={index} className="hover:bg-gray-100 transition duration-150">
-                  <td className="border border-gray-300 px-4 py-3 text-blue-500 cursor-pointer">
-                    <button onClick={() => handleEditClick(product)}>Edit</button>
-                  </td>
-                  <td className="border border-gray-300 px-4 py-3 text-red-500 cursor-pointer">
-                    <button onClick={() => handleDeleteClick(product._id)}>Delete</button>
-                  </td>
                   <td className="border border-gray-300 px-4 py-3 flex items-center justify-center">
                     <img
                       src={product.images[0]}
@@ -138,6 +142,20 @@ const ProductList = ({ token }) => {
                   <td className="border border-gray-300 px-4 py-3 text-gray-800 font-semibold">
                     ₹{product.price || 'N/A'}
                   </td>
+                  <td className="border border-gray-300 px-4 py-3 text-center">
+                    <button
+                      onClick={() => handleEditClick(product)}
+                      className="text-blue-500 mr-2"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDeleteClick(product._id)}
+                      className="text-red-500"
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -146,47 +164,57 @@ const ProductList = ({ token }) => {
       )}
 
       {editProduct && (
-        <form
-          onSubmit={handleEditSubmit}
-          className="mt-6 bg-gray-100 p-4 rounded-md shadow-md"
-        >
-          <h3 className="text-xl font-bold mb-4">Edit Product</h3>
-          <div className="mb-3">
-            <label className="block text-gray-700">Name:</label>
-            <input
-              type="text"
-              name="name"
-              value={editProduct.name}
-              onChange={handleInputChange}
-              className="w-full p-2 border border-gray-300 rounded-md"
-            />
+        <div className="fixed inset-0 bg-gray-700 bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg relative w-[90%] max-w-md">
+            <h3 className="text-xl font-bold mb-4">Edit Product</h3>
+            <form onSubmit={handleEditSubmit}>
+              <div className="mb-3">
+                <label className="block text-gray-700">Name:</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={editProduct.name}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border border-gray-300 rounded-md"
+                />
+              </div>
+              <div className="mb-3">
+                <label className="block text-gray-700">Description:</label>
+                <textarea
+                  name="description"
+                  value={editProduct.description}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border border-gray-300 rounded-md"
+                ></textarea>
+              </div>
+              <div className="mb-3">
+                <label className="block text-gray-700">Price:</label>
+                <input
+                  type="number"
+                  name="price"
+                  value={editProduct.price}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border border-gray-300 rounded-md"
+                />
+              </div>
+              <div className="flex justify-end gap-2">
+                <button
+                  type="button"
+                  onClick={() => setEditProduct(null)}
+                  className="bg-gray-500 text-white px-4 py-2 rounded-md"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                >
+                  Save Changes
+                </button>
+              </div>
+            </form>
           </div>
-          <div className="mb-3">
-            <label className="block text-gray-700">Description:</label>
-            <textarea
-              name="description"
-              value={editProduct.description}
-              onChange={handleInputChange}
-              className="w-full p-2 border border-gray-300 rounded-md"
-            ></textarea>
-          </div>
-          <div className="mb-3">
-            <label className="block text-gray-700">Price:</label>
-            <input
-              type="number"
-              name="price"
-              value={editProduct.price}
-              onChange={handleInputChange}
-              className="w-full p-2 border border-gray-300 rounded-md"
-            />
-          </div>
-          <button
-            type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded-md"
-          >
-            Save Changes
-          </button>
-        </form>
+        </div>
       )}
     </div>
   );

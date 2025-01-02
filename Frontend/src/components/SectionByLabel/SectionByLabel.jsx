@@ -2,8 +2,7 @@ import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Card from '../Card/Card.jsx';
-import MobileCard from '../MobileCard/MobileCard.jsx'
+import Card from "../Card/Card.jsx";
 import "./SectionByLabel.css";
 
 const NextArrow = ({ onClick }) => (
@@ -43,13 +42,12 @@ const SectionByLabel = () => {
       },
       {
         breakpoint: 768,
-        settings: {
-          slidesToShow: 1,  
-          slidesToScroll: 1,
-        },
+        settings: "unslick", 
       },
     ],
   };
+
+  const products = [1, 2, 3]; 
 
   return (
     <div className="main_ctr flex items-center justify-center flex-col py-10 px-6 md:px-24 gap-6">
@@ -61,25 +59,15 @@ const SectionByLabel = () => {
           Discover what's capturing hearts this season
         </div>
       </div>
-      
-      <div className="slider-container hidden md:flex w-full items-center justify-center  mt-6">
-        <Slider className=" w-full pl-8 md:pl-8" {...settings}>
-          {[1, 2, 3, 4, 5].map((product, index) => (
-            <div key={index}>
-              <Card /> 
-            </div>
-          ))}
-        </Slider>
-      </div>
 
-      <div className="flex flex-col gap-10 md:hidden">
-      <MobileCard/>
-      <MobileCard/>
-      <MobileCard/>
-      <MobileCard/>
-      <MobileCard/>
-      </div>
-      
+      <Slider className="w-full mt-6" {...settings}>
+        {products.map((product, index) => (
+          <div key={index} className="p-2">
+            <Card product={product} /> 
+          </div>
+        ))}
+      </Slider>
+
       <div className="explore_btn flex items-center justify-center bg-[#e0e0e0] rounded-full font-semibold px-8 py-4 text-sm cursor-pointer hover:bg-[#d4d4d4] duration-200 ease-in-out mt-6">
         View All Gifts
         <span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span>
