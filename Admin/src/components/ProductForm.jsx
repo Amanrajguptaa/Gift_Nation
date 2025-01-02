@@ -346,7 +346,6 @@ const ProductForm = ({ token }) => {
               value={subCategory}
               onChange={handleSubCategoryChange}
               className="mt-1 block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
-              required
             >
               <option value="" disabled>
                 Select Sub-Category
@@ -368,7 +367,6 @@ const ProductForm = ({ token }) => {
               value={subSubCategory}
               onChange={(e) => setSubSubCategory(e.target.value)}
               className="mt-1 block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
-              required
             >
               <option value="" disabled>
                 Select Sub-SubCategory

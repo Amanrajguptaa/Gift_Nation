@@ -27,7 +27,11 @@ const productSchema = new mongoose.Schema({
     },
     subCategory:{
         type:String,
-        required:true
+        required:false
+    },
+    subSubCategory:{
+        type:String,
+        required:false
     },
     bestSeller:{
         type:Boolean,
