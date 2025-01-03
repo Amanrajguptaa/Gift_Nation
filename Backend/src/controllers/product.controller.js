@@ -13,6 +13,9 @@ const addProduct = async (req, res) => {
       subSubCategory,
       bestSeller,
       discount,
+      tag1,
+      tag2,
+      tag3
     } = req.body;
 
     const image1 = req.files.image1?.[0];
@@ -42,6 +45,8 @@ const addProduct = async (req, res) => {
       })
     );
 
+    const tags = [tag1, tag2, tag3].filter((tag) => tag); 
+
     const productData = {
       name,
       productCode,
@@ -50,9 +55,10 @@ const addProduct = async (req, res) => {
       category,
       subCategory,
       subSubCategory,
-      discount,
+      discount: discount ? Number(discount) : 0, 
       bestSeller: bestSeller === "true",
       images: imagesUrl,
+      tags: tags,
       date: Date.now(),
     };
 
@@ -99,6 +105,9 @@ const editProduct = async (req, res) => {
       subSubCategory,
       bestSeller,
       discount,
+      tag1,
+      tag2,
+      tag3
     } = req.body;
 
     const product = await productModel.findById(productId);
@@ -139,6 +148,8 @@ const editProduct = async (req, res) => {
 
     imagesUrl = imagesUrl.length > 0 ? imagesUrl : product.images;
 
+    const tags = [tag1, tag2, tag3].filter((tag) => tag); 
+
     const updatedProductData = {
       name,
       productCode,
@@ -150,6 +161,7 @@ const editProduct = async (req, res) => {
       discount,
       bestSeller: bestSeller === "true",
       images: imagesUrl,
+      tags: tags,
       date: Date.now(),
     };
 

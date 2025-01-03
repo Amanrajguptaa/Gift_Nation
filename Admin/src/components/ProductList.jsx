@@ -48,6 +48,9 @@ const ProductList = ({ token }) => {
       if (editProduct.image3) formData.append('image3', editProduct.image3);
       if (editProduct.image4) formData.append('image4', editProduct.image4);
       if (editProduct.image5) formData.append('image5', editProduct.image5);
+      if(editProduct.tag1) formData.append('tag1', editProduct.tag1);
+      if(editProduct.tag2) formData.append('tag2', editProduct.tag2);
+      if(editProduct.tag3) formData.append('tag3', editProduct.tag3);
 
       const response = await axios.post(
         `https://gift-nation.onrender.com/api/product/edit-product/${editProduct._id}`,

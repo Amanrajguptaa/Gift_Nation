@@ -207,6 +207,9 @@ const ProductForm = ({ token }) => {
   const [subSubCategory, setSubSubCategory] = useState("");
   const [bestSeller, setBestSeller] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [tag1, setTag1] = useState("");
+  const [tag2, setTag2] = useState("");
+  const [tag3, setTag3] = useState("");
 
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
@@ -238,7 +241,7 @@ const ProductForm = ({ token }) => {
     try {
       const formData = new FormData();
       formData.append("name", name);
-      if(productCode) formData.append("productCode", productCode);
+      if (productCode) formData.append("productCode", productCode);
       formData.append("description", description);
       formData.append("price", price);
       formData.append("discount", discount);
@@ -246,6 +249,9 @@ const ProductForm = ({ token }) => {
       formData.append("subCategory", subCategory);
       formData.append("subSubCategory", subSubCategory);
       formData.append("bestSeller", bestSeller);
+      if (tag1) formData.append("tag1", tag1);
+      if (tag2) formData.append("tag2", tag2);
+      if (tag3) formData.append("tag3", tag3);
       images.forEach((image, index) => {
         if (image) formData.append(`image${index + 1}`, image);
       });
@@ -283,7 +289,7 @@ const ProductForm = ({ token }) => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter product name"
-              className="mt-1 block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
+              className="mt-1 block w-full rounded-lg border  border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
               required
             />
           </div>
@@ -299,7 +305,7 @@ const ProductForm = ({ token }) => {
               value={productCode}
               onChange={(e) => setProductCode(e.target.value)}
               placeholder="Enter product ID"
-              className="mt-1 block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
+              className="mt-1 block w-full rounded-lg border border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
             />
           </div>
           </div>
@@ -314,7 +320,7 @@ const ProductForm = ({ token }) => {
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               placeholder="Enter product price"
-              className="mt-1 block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
+              className="mt-1 block w-full rounded-lg border border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
               required
             />
           </div>
@@ -329,7 +335,7 @@ const ProductForm = ({ token }) => {
               value={discount}
               onChange={(e) => setDiscount(e.target.value)}
               placeholder="Enter discount percentage"
-              className="mt-1 block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
+              className="mt-1 block w-full rounded-lg border border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
             />
           </div>
 
@@ -341,7 +347,7 @@ const ProductForm = ({ token }) => {
               name="category"
               value={category}
               onChange={handleCategoryChange}
-              className="mt-1 block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
+              className="mt-1 block w-full rounded-lg border border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
               required
             >
               <option value="" disabled>
@@ -363,7 +369,7 @@ const ProductForm = ({ token }) => {
               name="subCategory"
               value={subCategory}
               onChange={handleSubCategoryChange}
-              className="mt-1 block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
+              className="mt-1 block w-full rounded-lg border border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
             >
               <option value="" disabled>
                 Select Sub-Category
@@ -384,7 +390,7 @@ const ProductForm = ({ token }) => {
               name="subSubCategory"
               value={subSubCategory}
               onChange={(e) => setSubSubCategory(e.target.value)}
-              className="mt-1 block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
+              className="mt-1 block w-full rounded-lg border border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
             >
               <option value="" disabled>
                 Select Sub-SubCategory
@@ -412,9 +418,41 @@ const ProductForm = ({ token }) => {
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Enter product description (max 250 characters)"
               maxLength={250}
-              className="mt-1 block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3 resize-none"
+              className="mt-1 block w-full rounded-lg border border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3 resize-none"
               rows="4"
             ></textarea>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 pb-1">
+              Tags
+            </label>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <input
+                type="text"
+                name="tag1"
+                value={tag1}
+                onChange={(e) => setTag1(e.target.value)}
+                placeholder="Recipient Tags"
+                className="mt-1 block w-full rounded-lg border border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
+              />
+              <input
+                type="text"
+                name="tag2"
+                value={tag2}
+                onChange={(e) => setTag2(e.target.value)}
+                placeholder="Quality Tags"
+                className="mt-1 block w-full rounded-lg border border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
+              />
+              <input
+                type="text"
+                name="tag3"
+                value={tag3}
+                onChange={(e) => setTag3(e.target.value)}
+                placeholder="Special Features"
+                className="mt-1 block w-full rounded-lg border border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
+              />
+            </div>
           </div>
 
           <div>
@@ -426,7 +464,7 @@ const ProductForm = ({ token }) => {
                 <label
                   key={index}
                   htmlFor={`image${index}`}
-                  className="w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer flex items-center justify-center bg-gray-100 hover:bg-gray-200"
+                  className="w-full h-32 border border-gray-300 rounded-lg cursor-pointer flex items-center justify-center bg-gray-100 hover:bg-gray-200"
                 >
                   {image ? (
                     <img
@@ -468,6 +506,10 @@ const ProductForm = ({ token }) => {
             </label>
           </div>
         </div>
+
+
+        
+
 
         <div className="col-span-1 md:col-span-2">
           <button

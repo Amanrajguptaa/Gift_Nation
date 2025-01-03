@@ -40,6 +40,10 @@ const productSchema = new mongoose.Schema({
     bestSeller:{
         type:Boolean,
     },
+    tags:{
+        type:Array,
+        required:false
+    },
     date:{
         type:Number,
         required:true
