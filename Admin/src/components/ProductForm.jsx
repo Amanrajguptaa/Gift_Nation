@@ -198,6 +198,7 @@ const categoriesData = [
 const ProductForm = ({ token }) => {
   const [images, setImages] = useState([null, null, null, null, null]);
   const [name, setName] = useState("");
+  const [productCode, setProductCode] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [discount, setDiscount] = useState("");
@@ -237,6 +238,7 @@ const ProductForm = ({ token }) => {
     try {
       const formData = new FormData();
       formData.append("name", name);
+      formData.append("productCode", productCode);
       formData.append("description", description);
       formData.append("price", price);
       formData.append("discount", discount);
@@ -286,6 +288,22 @@ const ProductForm = ({ token }) => {
             />
           </div>
 
+          <div className="space-y-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 pb-1">
+              Product ID
+            </label>
+            <input
+              type="text"
+              name="productCode"
+              value={productCode}
+              onChange={(e) => setProductCode(e.target.value)}
+              placeholder="Enter product ID"
+              className="mt-1 block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
+            />
+          </div>
+          </div>
+
           <div>
             <label className="block text-sm font-medium text-gray-700 pb-1">
               Product Price
@@ -309,7 +327,6 @@ const ProductForm = ({ token }) => {
               type="number"
               name="discount"
               value={discount}
-              required
               onChange={(e) => setDiscount(e.target.value)}
               placeholder="Enter discount percentage"
               className="mt-1 block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm py-2 px-3"
@@ -380,6 +397,8 @@ const ProductForm = ({ token }) => {
             </select>
           </div>
         </div>
+
+        
 
         <div className="space-y-6">
           <div>

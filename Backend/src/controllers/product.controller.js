@@ -5,6 +5,7 @@ const addProduct = async (req, res) => {
   try {
     const {
       name,
+      productCode,
       description,
       price,
       category,
@@ -43,6 +44,7 @@ const addProduct = async (req, res) => {
 
     const productData = {
       name,
+      productCode,
       description,
       price: Number(price),
       category,
@@ -89,6 +91,7 @@ const editProduct = async (req, res) => {
     const { productId } = req.params;
     const {
       name,
+      productCode,
       description,
       price,
       category,
@@ -138,6 +141,7 @@ const editProduct = async (req, res) => {
 
     const updatedProductData = {
       name,
+      productCode,
       description,
       price: Number(price),
       category,

@@ -34,6 +34,7 @@ const ProductList = ({ token }) => {
     try {
       const formData = new FormData();
       formData.append('name', editProduct.name);
+      formData.append('productCode', editProduct.productCode);
       formData.append('description', editProduct.description);
       formData.append('price', editProduct.price);
       formData.append('category', editProduct.category);
@@ -112,9 +113,15 @@ const ProductList = ({ token }) => {
                 <th className="border border-gray-300 px-4 py-3 text-left">
                   Product Name
                 </th>
+                <th className="border border-gray-300 px-4 py-3 text-left">
+                  Product Code
+                </th>
                 <th className="border border-gray-300 px-4 py-3 text-left">Category</th>
                 <th className="border border-gray-300 px-4 py-3 text-left">
                   Sub Category
+                </th>
+                <th className="border border-gray-300 px-4 py-3 text-left">
+                  Sub Sub Category
                 </th>
                 <th className="border border-gray-300 px-4 py-3 text-left">Price</th>
                 <th className="border border-gray-300 px-4 py-3 text-left">Actions</th>
@@ -134,10 +141,16 @@ const ProductList = ({ token }) => {
                     {product.name || 'N/A'}
                   </td>
                   <td className="border border-gray-300 px-4 py-3 text-gray-600">
+                    {product.productCode || 'N/A'}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-3 text-gray-600">
                     {product.category || 'N/A'}
                   </td>
                   <td className="border border-gray-300 px-4 py-3 text-gray-600">
                     {product.subCategory || 'N/A'}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-3 text-gray-600">
+                    {product.subSubCategory || 'N/A'}
                   </td>
                   <td className="border border-gray-300 px-4 py-3 text-gray-800 font-semibold">
                     ₹{product.price || 'N/A'}
@@ -174,6 +187,16 @@ const ProductList = ({ token }) => {
                   type="text"
                   name="name"
                   value={editProduct.name}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border border-gray-300 rounded-md"
+                />
+              </div>
+              <div className="mb-3">
+                <label className="block text-gray-700">Product Code:</label>
+                <input
+                  type="text"
+                  name="productCode"
+                  value={editProduct.productCode}
                   onChange={handleInputChange}
                   className="w-full p-2 border border-gray-300 rounded-md"
                 />

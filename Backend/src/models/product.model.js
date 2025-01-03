@@ -5,6 +5,10 @@ const productSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    productCode:{
+        type:String,
+        required:false
+    },
     description:{
         type:String,
         required:true
@@ -15,7 +19,7 @@ const productSchema = new mongoose.Schema({
     },
     discount:{
         type:Number,
-        required:true
+        required:false
     },
     images:{
         type:Array,
