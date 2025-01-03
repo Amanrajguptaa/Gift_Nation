@@ -238,7 +238,7 @@ const ProductForm = ({ token }) => {
     try {
       const formData = new FormData();
       formData.append("name", name);
-      formData.append("productCode", productCode);
+      if(productCode) formData.append("productCode", productCode);
       formData.append("description", description);
       formData.append("price", price);
       formData.append("discount", discount);

@@ -50,7 +50,7 @@ const ProductList = ({ token }) => {
       if (editProduct.image5) formData.append('image5', editProduct.image5);
 
       const response = await axios.post(
-        `https://gift-nation.onrender.com/api/product/edit-product/${editProduct._id}`,
+        `http://localhost:8000/api/product/edit-product/${editProduct._id}`,
         formData,
         {
           headers: { token },
@@ -74,7 +74,7 @@ const ProductList = ({ token }) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
         const response = await axios.delete(
-          `https://gift-nation.onrender.com/api/product/remove/${id}`,
+          `http://localhost:8000/api/product/remove/${id}`,
           {
             headers: { token },
           }
