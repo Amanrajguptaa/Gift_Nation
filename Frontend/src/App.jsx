@@ -4,11 +4,10 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Wishlist from "./pages/WishList.jsx";
 import Header from './components/Header/Header.jsx';
-import Footer from "./Components/Footer/Footer.jsx";
 import Cart from "./pages/Cart.jsx";
 import Product from './pages/Product.jsx'
 import SubCategory from "./pages/SubCategory.jsx";
-
+import Footer from './components/Footer/Footer.jsx'
 const App = () => {
   return (
     <>
