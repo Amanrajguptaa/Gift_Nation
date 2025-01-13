@@ -10,7 +10,7 @@ import fl08 from "../../../public/assets/FloatingImgs/FloatingImg(8).png";
 
 const HeroSection = () => {
   return (
-    <div className="h-[85%] my-10 flex items-center justify-center flex-col gap-8 px-10 relative">
+    <div className="h-[500px] my-10 flex items-center justify-center flex-col gap-8 px-10 relative">
       <div className="text_ctr flex items-center justify-center flex-col text-center z-10">
         <div className="heading_ctr text-4xl sm:text-5xl sm:w-[75%] font-semibold leading-tight">
           Thoughtful Gifting, Simplified

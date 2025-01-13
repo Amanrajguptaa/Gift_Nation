@@ -4,23 +4,19 @@ const addToCart = async (req, res) => {
   try {
     const { userId, itemId, quantity } = req.body;
 
-    // Find the user by ID
     const userData = await userModel.findById(userId);
     if (!userData) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    let cartData = userData.cartData || {}; // Ensure cartData exists
+    let cartData = userData.cartData || {};
 
     if (cartData[itemId]) {
-      // Item already in cart, update the quantity
-      cartData[itemId].quantity += quantity; // Add quantity instead of replacing it
+      cartData[itemId].quantity += quantity; 
     } else {
-      // Item is not in the cart, add it with the provided quantity
-      cartData[itemId] = { quantity }; // Start with the provided quantity
+      cartData[itemId] = { quantity };
     }
 
-    // Update the user's cartData in the database
     await userModel.findByIdAndUpdate(userId, { cartData });
 
     res.status(200).json({ message: "Item added to cart" });
