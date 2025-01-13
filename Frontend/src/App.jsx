@@ -3,8 +3,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Wishlist from "./pages/WishList.jsx";
-import Header from './components/Header.jsx';
-import Footer from "./Components/Footer.jsx";
+import Header from './components/Header/Header.jsx';
+import Footer from "./Components/Footer/Footer.jsx";
 import Cart from "./pages/Cart.jsx";
 import Product from './pages/Product.jsx'
 import SubCategory from "./pages/SubCategory.jsx";
