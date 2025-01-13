@@ -1,13 +1,13 @@
 import React from "react";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Wishlist from "./pages/Wishlist";
-import Header from "./Components/Header/Header";
-import Footer from "./Components/Footer/Footer";
-import Cart from "./pages/Cart";
-import Product from './pages/Product'
-import SubCategory from "./pages/SubCategory";
+import Home from "./pages/Home.jsx";
+import Wishlist from "./pages/WishList.jsx";
+import Header from "./Components/Header/Header.jsx";
+import Footer from "./Components/Footer/Footer.jsx";
+import Cart from "./pages/Cart.jsx";
+import Product from './pages/Product.jsx'
+import SubCategory from "./pages/SubCategory.jsx";
 
 const App = () => {
   return (

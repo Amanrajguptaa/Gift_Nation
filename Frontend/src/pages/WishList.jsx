@@ -1,6 +1,6 @@
 import React from 'react'
-import WishListSection from './WishListSection'
-import CtaBannerSection from '../Components/CtaBannerSection/CtaBannerSection'
+import WishListSection from './WishListSection.jsx'
+import CtaBannerSection from '../Components/CtaBannerSection/CtaBannerSection.jsx'
 
 const Wishlist = () => {
   return (
