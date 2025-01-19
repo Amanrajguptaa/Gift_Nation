@@ -1,12 +1,12 @@
 import React from "react";
-import fl01 from "../../../public/assets/FloatingImgs/FloatingImg(1).png";
-import fl02 from "../../../public/assets/FloatingImgs/FloatingImg(2).png";
-import fl03 from "../../../public/assets/FloatingImgs/FloatingImg(3).png";
-import fl04 from "../../../public/assets/FloatingImgs/FloatingImg(4).png";
-import fl05 from "../../../public/assets/FloatingImgs/FloatingImg(5).png";
-import fl06 from "../../../public/assets/FloatingImgs/FloatingImg(6).png";
-import fl07 from "../../../public/assets/FloatingImgs/FloatingImg(7).png";
-import fl08 from "../../../public/assets/FloatingImgs/FloatingImg(8).png";
+import fl01 from "/assets/FloatingImgs/FloatingImg(1).png";
+import fl02 from "/assets/FloatingImgs/FloatingImg(2).png";
+import fl03 from "/assets/FloatingImgs/FloatingImg(3).png";
+import fl04 from "/assets/FloatingImgs/FloatingImg(4).png";
+import fl05 from "/assets/FloatingImgs/FloatingImg(5).png";
+import fl06 from "/assets/FloatingImgs/FloatingImg(6).png";
+import fl07 from "/assets/FloatingImgs/FloatingImg(7).png";
+import fl08 from "/assets/FloatingImgs/FloatingImg(8).png";
 
 const HeroSection = () => {
   return (
