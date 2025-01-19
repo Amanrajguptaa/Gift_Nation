@@ -7,7 +7,7 @@ import "./SectionByLabel.css";
 
 const NextArrow = ({ onClick }) => (
   <button
-    className="absolute text-2xl top-1/2 right-0 md:right-5 transform -translate-y-1/2 bg-[#EFEFEF] text-black p-2 md:p-3 lg:p-4 rounded-full shadow-lg focus:outline-none z-10"
+    className="absolute text-2xl top-1/2 right-0 md:-right-6 transform -translate-y-1/2 bg-[#EFEFEF] text-black p-2 md:p-3 lg:p-4 rounded-full shadow-lg focus:outline-none z-10"
     onClick={onClick}
   >
     &#8250;
@@ -16,7 +16,7 @@ const NextArrow = ({ onClick }) => (
 
 const PrevArrow = ({ onClick }) => (
   <button
-    className="absolute text-2xl top-1/2 left-0 md:left-5 transform -translate-y-1/2 bg-[#EFEFEF] text-black p-2 md:p-3 lg:p-4 rounded-full shadow-lg focus:outline-none z-10"
+    className="absolute text-2xl top-1/2 left-0 md:-left-16 transform -translate-y-1/2 bg-[#EFEFEF] text-black p-2 md:p-3 lg:p-4 rounded-full shadow-lg focus:outline-none z-10"
     onClick={onClick}
   >
     &#8249;
