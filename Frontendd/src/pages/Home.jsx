@@ -1,10 +1,10 @@
 import React from 'react'
-import HeroSection from '../Components/HeroSection.jsx'
-import FeatureCardsSection from '../Components/FeatureCardsSection.jsx'
-import FeaturedCategoriesSection from '../Components/FeaturedCategoriesSection.jsx'
-import SectionByLabel from '../Components/SectionByLabel/SectionByLabel.jsx'
-import CtaBannerSection from '../Components/CtaBannerSection.jsx'
-import GiftFinder from '../Components/GiftFinder.jsx'
+import HeroSection from '../components/HeroSection.jsx'
+import FeatureCardsSection from '../components/FeatureCardsSection.jsx'
+import FeaturedCategoriesSection from '../components/FeaturedCategoriesSection.jsx'
+import SectionByLabel from '../components/SectionByLabel/SectionByLabel.jsx'
+import CtaBannerSection from '../components/CtaBannerSection.jsx'
+import GiftFinder from '../components/GiftFinder.jsx'
 
 const Home = () => {
   return (
