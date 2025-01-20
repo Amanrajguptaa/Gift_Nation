@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "../Components/Card/Card";
+import Card from "../components/Card/Card.jsx";
 
 const WishListSection = () => {
   const [curr, setCurr] = useState(3);

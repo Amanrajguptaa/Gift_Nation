@@ -3,11 +3,11 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Wishlist from "./pages/WishList.jsx";
-import Header from './components/Header/Header.jsx';
+import Header from './components/Header.jsx';
 import Cart from "./pages/Cart.jsx";
 import Product from './pages/Product.jsx'
 import SubCategory from "./pages/SubCategory.jsx";
-import Footer from './components/Footer/Footer.jsx'
+import Footer from './components/Footer.jsx'
 const App = () => {
   return (
     <>

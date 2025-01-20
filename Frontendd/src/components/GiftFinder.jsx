@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import image from "../../../public/assets/GiftFinderLoader.png";
-// import style from "./GiftFinder.module.css";
+import image from "/assets/GiftFinderLoader.png";
 
 const GiftFinder = () => {
   const [message, setMessage] = useState("Start the Search");

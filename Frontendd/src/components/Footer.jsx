@@ -1,5 +1,5 @@
 import React from "react";
-import paymentMethods from "../../../public/assets/paymentMethods.png"
+import paymentMethods from "/assets/paymentMethods.png"
 
 const Footer = () => {
   return (

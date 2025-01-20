@@ -1,5 +1,5 @@
 import React from "react";
-import index from "../../../public/assets/CtaBannerImg.png";
+import index from "/assets/CtaBannerImg.png";
 
 const CtaBannerSection = () => {
   return (
