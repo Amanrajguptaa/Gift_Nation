@@ -2,7 +2,7 @@ import React from 'react'
 import WishListSection from '../components/WishlistSection.jsx'
 import CtaBannerSection from '../Components/CtaBannerSection.jsx'
 
-const Wishlist = () => {
+const WishList = () => {
   return (
     <div>
       <WishListSection/>
@@ -11,4 +11,4 @@ const Wishlist = () => {
   )
 }
 
-export default Wishlist
+export default WishList
