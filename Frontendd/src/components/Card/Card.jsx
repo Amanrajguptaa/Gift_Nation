@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Card.css";
+import "./Cardstyle.css";
 
 const Card = () => {
   const [isHeart, setIsHeart] = useState(false);
@@ -62,3 +62,4 @@ const Card = () => {
 };
 
 export default Card;
+
