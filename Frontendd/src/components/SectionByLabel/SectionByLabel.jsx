@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../Card/Card.jsx";
-import "./SectionByLabel.css";
+import "./Sectionstyle.css";
 
 const SectionByLabel = () => {
   return (

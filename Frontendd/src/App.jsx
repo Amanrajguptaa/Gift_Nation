@@ -2,7 +2,6 @@ import React from "react";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home.jsx";
-import WishList from "./pages/WishList.jsx";
 import Header from './components/Header.jsx';
 import Cart from "./pages/Cart.jsx";
 import Product from './pages/Product.jsx'
@@ -14,7 +13,6 @@ const App = () => {
     <Header/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/wishlist" element={<WishList />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/product/:ProductId" element={<Product/>} />
         <Route path="/sub-category" element={<SubCategory/>} />
