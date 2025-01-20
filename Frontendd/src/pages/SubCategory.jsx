@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from '../components/Card/Card.jsx';
+import Card from "../Components/Card/Card";
 
 const SubCategory = () => {
   const filters = ["Under ₹500", "Blue", "₹500 - ₹1000", "XL", "₹1000 - ₹2000", "₹2000 - ₹3000", "₹3000 - ₹4000", "₹4000 - ₹5000", "₹5000 - ₹6000", "₹6000 - ₹7000", "₹7000 - ₹8000",];

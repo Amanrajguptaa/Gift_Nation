@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from '../components/Card/Card.jsx';
+import Card from "../Components/Card/Card";
 
 const Product = () => {
   const [isHeart, setIsHeart] = useState(false);
