@@ -7,6 +7,7 @@ import Cart from "./pages/Cart.jsx";
 import Product from './pages/Product.jsx'
 import SubCategory from "./pages/SubCategory.jsx";
 import Footer from './components/Footer.jsx'
+import Wishlist from "./pages/Wishlist.jsx";
 const App = () => {
   return (
     <>
@@ -14,6 +15,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<Wishlist/>} />
         <Route path="/product/:ProductId" element={<Product/>} />
         <Route path="/sub-category" element={<SubCategory/>} />
       </Routes>
