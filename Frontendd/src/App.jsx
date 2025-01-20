@@ -8,12 +8,14 @@ import Product from './pages/Product.jsx'
 import SubCategory from "./pages/SubCategory.jsx";
 import Footer from './components/Footer.jsx'
 import Wishlist from "./pages/Wishlist.jsx";
+import Landing from "./pages/Landing.jsx";
 const App = () => {
   return (
     <>
     <Header/>
       <Routes>
-        <Route path="/" element={<Home />} />
+      <Route path="/" element={<Landing />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist/>} />
         <Route path="/product/:ProductId" element={<Product/>} />
