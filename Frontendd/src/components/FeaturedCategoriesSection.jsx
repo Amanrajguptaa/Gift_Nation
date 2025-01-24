@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const FeaturedCategoriesSection = () => {
   const cardsData = [
@@ -55,7 +56,7 @@ const FeaturedCategoriesSection = () => {
           </div>
         ))}
       </div>
-      <div className="explore_btn flex items-center justify-center bg-[#111827] rounded-full text-white px-8 py-4 text-sm cursor-pointer hover:bg-[#1d283f] duration-200 ease-in-out">Explore Collections<span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span></div>
+      <Link to={'/categories'}><button className="explore_btn flex items-center justify-center bg-[#111827] rounded-full text-white px-8 py-4 text-sm cursor-pointer hover:bg-[#1d283f] duration-200 ease-in-out">Explore Collections<span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span></button></Link>
     </div>
   );
 };

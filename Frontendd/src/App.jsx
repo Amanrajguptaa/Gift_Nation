@@ -9,6 +9,7 @@ import SubCategory from "./pages/SubCategory.jsx";
 import Footer from './components/Footer.jsx'
 import Wishlist from "./pages/Wishlist.jsx";
 import Landing from "./pages/Landing.jsx";
+import Category from "./pages/Category.jsx";
 const App = () => {
   return (
     <>
@@ -16,10 +17,11 @@ const App = () => {
       <Routes>
       <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/categories" element={<Category />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist/>} />
         <Route path="/product/:ProductId" element={<Product/>} />
-        <Route path="/sub-category" element={<SubCategory/>} />
+        <Route path="/:category/sub-category" element={<SubCategory/>} />
       </Routes>
       <Footer/>
     </>

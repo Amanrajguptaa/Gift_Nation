@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isHamBurger, setIsHamBurger] = useState(false);
@@ -15,8 +16,9 @@ const Header = () => {
           onClick={() => toggleHamBurger()}
         ></div>
         <div className="left_ctr w-3/12 md:w-2/12 font-bold text-2xl flex items-center justify-center cursor-pointer ">
-          GiftNation
+        <Link to={'/'}>GiftNation</Link>
         </div>
+        
         <div className="mid_ctr w-9/12 items-center justify-center gap-6 font-extralight hidden lg:flex cursor-pointer">
           <div>Categories</div>
           <div>Trending</div>
@@ -27,8 +29,8 @@ const Header = () => {
         </div>
         <div className="right_ctr w-2/12 flex items-center justify-center gap-3 sm:gap-4 cursor-pointer">
           <div className="bi bi-search hover:scale-[1.2] duration-200 ease-in-out"></div>
-          <div className="bi bi-heart hover:scale-[1.2] duration-200 ease-in-out"></div>
-          <div className="bi bi-bag hover:scale-[1.2] duration-200 ease-in-out"></div>
+          <Link to={'/wishlist'}><div className="bi bi-heart hover:scale-[1.2] duration-200 ease-in-out"></div></Link>
+          <Link to={'/cart'}><div className="bi bi-bag hover:scale-[1.2] duration-200 ease-in-out"></div></Link>
         </div>
       </div>
       <div
