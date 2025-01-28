@@ -13,17 +13,16 @@ const CtaBannerSection = () => {
             Curated gift sets for every occasion and person in your life.
           </div>
           <div className="explore_btn flex items-center justify-center border border-white/50 rounded-full sm:w-7/12 lg:w-6/12 text-white px-4 py-3 text-xs md:text-sm cursor-pointer hover:bg-[#1d283f] duration-200 ease-in-out mt-3">
-          Find Out Now
-          <span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span>
-        </div>
+            Find Out Now
+            <span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span>
+          </div>
         </div>
         <div className="right_ctr w-5/12 flex items-center justify-center">
           <img
-            src={index} 
+            src={index}
             className="max-w-[90%] sm:w-[75%] md:w-[60%] mt-8 animate-customBounce"
           />
         </div>
-        
       </div>
     </div>
   );

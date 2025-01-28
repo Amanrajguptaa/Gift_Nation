@@ -1,14 +1,14 @@
-import React from 'react'
-import WishlistSection from '../components/WishlistSection'
-import CtaBannerSection from '../components/CtaBannerSection'
+import React from "react";
+import WishlistSection from "../components/WishlistSection";
+import CtaBannerSection from "../components/CtaBannerSection";
 
 const Wishlist = () => {
   return (
     <div>
-      <WishlistSection/>
-      <CtaBannerSection/>
+      <WishlistSection />
+      <CtaBannerSection />
     </div>
-  )
-}
+  );
+};
 
-export default Wishlist
+export default Wishlist;

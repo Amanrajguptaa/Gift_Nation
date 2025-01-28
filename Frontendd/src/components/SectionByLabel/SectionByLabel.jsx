@@ -3,7 +3,7 @@ import Card from "../Card/Card.jsx";
 import "./Sectionstyle.css";
 import { Link } from "react-router-dom";
 
-const SectionByLabel = ({label,products}) => {
+const SectionByLabel = ({ label, products }) => {
   return (
     <div className="main_ctr flex items-center justify-center flex-col py-10 px-6 md:px-24 gap-6">
       <div className="text_ctr flex items-center justify-center flex-col">
@@ -15,15 +15,13 @@ const SectionByLabel = ({label,products}) => {
         </div>
       </div>
       <div className="w-full flex flex-col gap-3 md:flex-row items-center justify-center">
-        {
-          products.map((product, index) => {
-            return (
-              <Link to={`/product/${product._id}`}>
+        {products.map((product, index) => {
+          return (
+            <Link to={`/product/${product._id}`}>
               <Card product={product} />
-              </Link>
-            )
-          })
-        }
+            </Link>
+          );
+        })}
         {/* <Card />
         <Card />
         <Card /> */}

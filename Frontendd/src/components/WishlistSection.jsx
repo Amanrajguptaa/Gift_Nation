@@ -30,7 +30,7 @@ const WishlistSection = () => {
 
         <div className="w-full flex flex-col gap-3 md:flex-row items-center justify-center flex-wrap">
           {[...Array(18)].slice(0, curr).map((_, index) => (
-            <Card key={index}/>
+            <Card key={index} />
           ))}
         </div>
 
@@ -39,7 +39,7 @@ const WishlistSection = () => {
             id="load-more-btn"
             className="flex items-center justify-center bg-[#111827] rounded-full text-white px-8 py-4 text-xs sm:text-sm cursor-pointer hover:bg-[#1d283f] duration-200 ease-in-out disabled:opacity-50"
             onClick={handleLoadMore}
-            disabled={curr==18}
+            disabled={curr == 18}
           >
             Load More
             <span className="bi bi-heart-fill ml-2 flex items-center justify-center"></span>

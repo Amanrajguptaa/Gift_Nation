@@ -7,6 +7,7 @@ import userRouter from './src/routes/user.route.js';
 import productRouter from './src/routes/product.route.js';
 import cartRouter from './src/routes/cart.route.js';
 import orderRouter from './src/routes/order.route.js';
+import enquiryRouter from './src/routes/enquiry.route.js';
 
 const app = express()
 const port=process.env.PORT || 4000
@@ -27,10 +28,10 @@ connectDB()
     console.log(error)
 })
 
-
-
 app.use('/api/user',userRouter)
 app.use('/api/product',productRouter)
 app.use('/api/cart',cartRouter)
 app.use('/api/order',orderRouter)
+app.use('/api/enquiry',enquiryRouter)
+
 

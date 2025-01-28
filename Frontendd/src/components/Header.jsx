@@ -16,9 +16,9 @@ const Header = () => {
           onClick={() => toggleHamBurger()}
         ></div>
         <div className="left_ctr w-3/12 md:w-2/12 font-bold text-2xl flex items-center justify-center cursor-pointer ">
-        <Link to={'/'}>GiftNation</Link>
+          <Link to={"/"}>GiftNation</Link>
         </div>
-        
+
         <div className="mid_ctr w-9/12 items-center justify-center gap-6 font-extralight hidden lg:flex cursor-pointer">
           <div>Categories</div>
           <div>Trending</div>
@@ -27,10 +27,17 @@ const Header = () => {
           <div>About Us</div>
           <div>Blogs</div>
         </div>
-        <div className="right_ctr w-2/12 flex items-center justify-center gap-3 sm:gap-4 cursor-pointer">
-          <div className="bi bi-search hover:scale-[1.2] duration-200 ease-in-out"></div>
-          <Link to={'/wishlist'}><div className="bi bi-heart hover:scale-[1.2] duration-200 ease-in-out"></div></Link>
-          <Link to={'/cart'}><div className="bi bi-bag hover:scale-[1.2] duration-200 ease-in-out"></div></Link>
+        <div className="right_ctr w-2/12 flex items-center justify-center gap-3 sm:gap-6 cursor-pointer">
+          <div className="bi bi-search scale-[1.2] duration-200 ease-in-out"></div>
+          <Link to={"/signup"}>
+            <div className="bi bi-person scale-[1.6] duration-200 ease-in-out"></div>
+          </Link>
+          <Link to={"/wishlist"}>
+            <div className="bi bi-heart scale-[1.2] duration-200 ease-in-out"></div>
+          </Link>
+          <Link to={"/cart"}>
+            <div className="bi bi-bag scale-[1.2] duration-200 ease-in-out"></div>
+          </Link>
         </div>
       </div>
       <div

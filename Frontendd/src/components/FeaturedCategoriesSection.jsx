@@ -43,7 +43,9 @@ const FeaturedCategoriesSection = () => {
         {cardsData.map((cardData, index) => (
           <div
             key={index}
-            className={`card py-8 px-8 rounded-lg sm:flex flex-col gap-3 ${((index)%2==0?"bg-[#efefef]":"bg-[#fef7c5]")} ${index>2?"hidden":"flex"}`}
+            className={`card py-8 px-8 rounded-lg sm:flex flex-col gap-3 ${
+              index % 2 == 0 ? "bg-[#efefef]" : "bg-[#fef7c5]"
+            } ${index > 2 ? "hidden" : "flex"}`}
           >
             <div className="font-semibold text-xl">{`Category ${
               index + 1
@@ -56,7 +58,12 @@ const FeaturedCategoriesSection = () => {
           </div>
         ))}
       </div>
-      <Link to={'/categories'}><button className="explore_btn flex items-center justify-center bg-[#111827] rounded-full text-white px-8 py-4 text-sm cursor-pointer hover:bg-[#1d283f] duration-200 ease-in-out">Explore Collections<span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span></button></Link>
+      <Link to={"/categories"}>
+        <button className="explore_btn flex items-center justify-center bg-[#111827] rounded-full text-white px-8 py-4 text-sm cursor-pointer hover:bg-[#1d283f] duration-200 ease-in-out">
+          Explore Collections
+          <span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span>
+        </button>
+      </Link>
     </div>
   );
 };

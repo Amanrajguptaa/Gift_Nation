@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { cartItems } = useContext(ShopContext);
@@ -8,22 +9,26 @@ const Cart = () => {
 
   useEffect(() => {
     // Map cartItems with products to get complete product details
-    const updatedCartProducts = Object.entries(cartItems).map(([id, quantity]) => {
-      const product = products.find((prod) => prod._id === id);
-      return product
-        ? {
-            ...product,
-            quantity,
-          }
-        : null;
-    }).filter(Boolean); // Filter out any null values in case of missing products
+    const updatedCartProducts = Object.entries(cartItems)
+      .map(([id, quantity]) => {
+        const product = products.find((prod) => prod._id === id);
+        return product
+          ? {
+              ...product,
+              quantity,
+            }
+          : null;
+      })
+      .filter(Boolean); // Filter out any null values in case of missing products
     setCartProducts(updatedCartProducts);
   }, [cartItems, products]);
 
   const handlePlusQty = (id) => {
     setCartProducts((prevCartProducts) =>
       prevCartProducts.map((product) =>
-        product._id === id ? { ...product, quantity: product.quantity + 1 } : product
+        product._id === id
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
       )
     );
   };
@@ -61,8 +66,12 @@ const Cart = () => {
             <div className="text_ctr md:w-8/12 w-7/12 sm:w-8/12 flex h-full">
               <div className="right_ctr w-8/12 flex flex-col gap-2 sm:gap-10 md:gap-2 justify-center">
                 <div className="flex flex-col">
-                  <div className="text-xs sm:text-xl md:text-sm font-medium">{item.category}</div>
-                  <div className="sm:text-3xl text-xl font-semibold leading-5">{item.name}</div>
+                  <div className="text-xs sm:text-xl md:text-sm font-medium">
+                    {item.category}
+                  </div>
+                  <div className="sm:text-3xl text-xl font-semibold leading-5">
+                    {item.name}
+                  </div>
                 </div>
                 <div className="flex flex-col gap-1">
                   <div className="text-3xl sm:text-4xl md:text-3xl font-medium">
@@ -91,13 +100,14 @@ const Cart = () => {
         <div className="text-2xl font-semibold">Order Summary</div>
         <div className="w-full flex flex-col justify-start">
           {cartProducts.map((item) => (
-            <div key={item._id} className="flex justify-between w-full bg-black/5 mb-2 p-1 text-md">
+            <div
+              key={item._id}
+              className="flex justify-between w-full bg-black/5 mb-2 p-1 text-md"
+            >
               <div>
                 {item.name} x {item.quantity}
               </div>
-              <div className="font-semibold">
-                ₹{item.price * item.quantity}
-              </div>
+              <div className="font-semibold">₹{item.price * item.quantity}</div>
             </div>
           ))}
         </div>
@@ -105,11 +115,15 @@ const Cart = () => {
           <div className="font-semibold text-base w-5/12 leading-tight">
             Total Amount Payable
           </div>
-          <div className="font-semibold text-3xl">₹{calculateTotalAmount()}</div>
+          <div className="font-semibold text-3xl">
+            ₹{calculateTotalAmount()}
+          </div>
         </div>
+
         <button className="w-full bg-[#111827] rounded-full p-3 text-white text-md">
-          Proceed to Checkout
+          <Link to={"/checkout"}> Proceed to Checkout</Link>
         </button>
+
         <div className="w-full flex items-center justify-center gap-2 text-md">
           <button className="bg-[#111827] rounded-full px-7 py-3 w-8/12 text-white">
             Add More

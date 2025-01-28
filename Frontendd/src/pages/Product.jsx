@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
+import Card from "../components/Card/Card";
 
 const Product = () => {
   const [isHeart, setIsHeart] = useState(false);
@@ -8,11 +9,12 @@ const Product = () => {
   const [currQty, setCurrQty] = useState(1);
   const [product, setProduct] = useState(null);
   const [mainImg, setMainImg] = useState("");
+  const [subCategory, setSubCategory] = useState("");
+  const [relatedProducts, setRelatedProducts] = useState([]);
 
   const { ProductId } = useParams();
   const { products, addToCart } = useContext(ShopContext);
 
-  // Adjust quantity
   const handleMinusQty = () => {
     if (currQty > 1) setCurrQty(currQty - 1);
   };
@@ -21,27 +23,30 @@ const Product = () => {
     setCurrQty(currQty + 1);
   };
 
-  // Wishlist toggle
   const toggleHeart = () => {
     setIsHeart((prev) => !prev);
   };
 
-  // Add to cart
   const handleAddToCart = () => {
     addToCart(product._id, currQty);
     setIsAdded(true);
   };
 
-  // Fetch product details on mount or when ProductId changes
   useEffect(() => {
     const productData = products.find((prod) => prod._id === ProductId);
     if (productData) {
       setProduct(productData);
       setMainImg(productData.images?.[0] || "");
+      setSubCategory(productData.subCategory);
     } else {
       setProduct(null);
     }
   }, [products, ProductId]);
+
+  useEffect(() => {
+    const prods = products.filter((prod) => prod.subCategory === subCategory);
+    setRelatedProducts(prods.slice(0, 3));
+  }, [product, ProductId]);
 
   if (!product) {
     return <div className="text-center mt-20">Product not found!</div>;
@@ -49,7 +54,6 @@ const Product = () => {
 
   return (
     <div className="main_ctr w-full my-10 px-8 lg:px-20 flex flex-col gap-10">
-      {/* Product Images */}
       <div className="upper_ctr w-full lg:h-[375px] md:h-[500px] h-[800px] flex flex-col-reverse md:flex-row items-center justify-between gap-4">
         <div className="left_ctr w-full md:w-5/12 h-full flex flex-col gap-3">
           <div className="main_img h-[75%] lg:h-[85%] md:h-[50%] w-full rounded-lg">
@@ -76,7 +80,6 @@ const Product = () => {
           </div>
         </div>
 
-        {/* Product Details */}
         <div className="right_ctr w-full md:w-7/12 h-full md:p-4 md:px-8 flex flex-col justify-center">
           <div className="uppr_ctr w-full py-4 flex flex-col">
             <div className="text-4xl font-semibold">{product.name}</div>
@@ -89,21 +92,16 @@ const Product = () => {
             {/* Price and Discount */}
             <div className="left_ctr flex items-end md:items-start md:flex-col w-full md:w-5/12 lg:w-4/12 md:border-r md:border-black gap-2">
               <div className="flex flex-col">
-                {product.discount > 0 && (
-                  <div className="line-through text-md">₹{product.price}</div>
-                )}
-                <div className="text-4xl font-semibold">
-                  ₹{product.price - (product.price * product.discount) / 100}
-                </div>
+                <div className="line-through text-md">₹{1234}</div>
+                <div className="text-4xl font-semibold">₹{product.price}</div>
               </div>
               {product.discount > 0 && (
                 <div className="rounded-full flex items-center justify-center w-3/12 md:w-8/12 bg-[#111827] text-white px-2 py-2 text-xs font-bold md:mt-2 scale-[0.8] md:scale-[1]">
-                  {product.discount}% Off
+                  {product.discount || 5}% Off
                 </div>
               )}
             </div>
 
-            {/* Quantity & Add to Cart */}
             <div className="right_ctr flex flex-col w-full md:w-6/12 md:px-4 gap-3">
               <div className="flex items-start justify-between flex-col-reverse gap-2">
                 <div className="units_ctr flex bg-white items-center justify-center w-6/12 md:w-full lg:w-6/12 rounded-md border border-black">
@@ -151,10 +149,17 @@ const Product = () => {
         </div>
       </div>
 
-      {/* Product Description */}
       <div className="desc_ctr w-full border-y border-black flex flex-col gap-2 py-10 mt-10">
         <div className="text-2xl font-semibold">Description</div>
         <div>{product.description || "No description available."}</div>
+      </div>
+      <div className="suggested_ctr w-full flex flex-col gap-6 py-2">
+        <div className="text-3xl font-semibold">Customers Also Buy....</div>
+        <div className="w-full flex flex-wrap gap-10">
+          {relatedProducts.map((product, index) => (
+            <Card key={index} product={product} />
+          ))}
+        </div>
       </div>
     </div>
   );

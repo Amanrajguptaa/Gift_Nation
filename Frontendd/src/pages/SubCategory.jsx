@@ -5,195 +5,207 @@ import { ShopContext } from "../context/ShopContext";
 
 const categoriesData = [
   {
-    category: 'Electronics and Gadgets',
+    category: "Electronics and Gadgets",
     subCategories: [
       {
-        subCategory: 'Portable Electronics',
-        subSubCategories: ['Power Banks', 'Bluetooth Speakers', 'Earphones']
+        subCategory: "Portable Electronics",
+        subSubCategories: ["Power Banks", "Bluetooth Speakers", "Earphones"],
       },
       {
-        subCategory: 'Home Gadgets',
-        subSubCategories: ['Smart Plugs', 'Air Purifiers']
+        subCategory: "Home Gadgets",
+        subSubCategories: ["Smart Plugs", "Air Purifiers"],
       },
       {
-        subCategory: 'Tech Accessories',
-        subSubCategories: ['Charging Cables', 'Laptop Stands', 'Wireless Chargers']
-      }
-    ]
+        subCategory: "Tech Accessories",
+        subSubCategories: [
+          "Charging Cables",
+          "Laptop Stands",
+          "Wireless Chargers",
+        ],
+      },
+    ],
   },
   {
-    category: 'Office Essentials',
+    category: "Office Essentials",
     subCategories: [
       {
-        subCategory: 'Stationery',
-        subSubCategories: ['Diaries', 'Notebooks', 'Sticky Notes']
+        subCategory: "Stationery",
+        subSubCategories: ["Diaries", "Notebooks", "Sticky Notes"],
       },
       {
-        subCategory: 'Organizers',
-        subSubCategories: ['Desk Organizers', 'Calendars']
+        subCategory: "Organizers",
+        subSubCategories: ["Desk Organizers", "Calendars"],
       },
       {
-        subCategory: 'Writing Instruments',
-        subSubCategories: ['Premium Pens', 'Stylus Pens']
-      }
-    ]
+        subCategory: "Writing Instruments",
+        subSubCategories: ["Premium Pens", "Stylus Pens"],
+      },
+    ],
   },
   {
-    category: 'Drinkware',
+    category: "Drinkware",
     subCategories: [
       {
-        subCategory: 'Bottles',
-        subSubCategories: ['Stainless Steel', 'Vacuum Bottles', 'Copper Bottles']
+        subCategory: "Bottles",
+        subSubCategories: [
+          "Stainless Steel",
+          "Vacuum Bottles",
+          "Copper Bottles",
+        ],
       },
       {
-        subCategory: 'Mugs and Tumblers',
-        subSubCategories: ['Coffee Mugs', 'Insulated Tumblers']
+        subCategory: "Mugs and Tumblers",
+        subSubCategories: ["Coffee Mugs", "Insulated Tumblers"],
       },
       {
-        subCategory: 'Gift Sets',
-        subSubCategories: ['Bottle and Mug Combos']
-      }
-    ]
+        subCategory: "Gift Sets",
+        subSubCategories: ["Bottle and Mug Combos"],
+      },
+    ],
   },
   {
-    category: 'Apparel',
+    category: "Apparel",
     subCategories: [
       {
-        subCategory: 'T-Shirts',
-        subSubCategories: ['Polo', 'Round Neck', 'Custom Printed']
+        subCategory: "T-Shirts",
+        subSubCategories: ["Polo", "Round Neck", "Custom Printed"],
       },
       {
-        subCategory: 'Jackets',
-        subSubCategories: ['Windcheaters', 'Hoodies']
+        subCategory: "Jackets",
+        subSubCategories: ["Windcheaters", "Hoodies"],
       },
       {
-        subCategory: 'Uniforms',
-        subSubCategories: ['Corporate Branding Uniforms']
-      }
-    ]
+        subCategory: "Uniforms",
+        subSubCategories: ["Corporate Branding Uniforms"],
+      },
+    ],
   },
   {
-    category: 'Awards and Recognition',
+    category: "Awards and Recognition",
     subCategories: [
       {
-        subCategory: 'Trophies',
-        subSubCategories: ['Metal', 'Crystal', 'Wooden', 'Acrylic']
+        subCategory: "Trophies",
+        subSubCategories: ["Metal", "Crystal", "Wooden", "Acrylic"],
       },
       {
-        subCategory: 'Plaques',
-        subSubCategories: ['Customized Engravings']
+        subCategory: "Plaques",
+        subSubCategories: ["Customized Engravings"],
       },
       {
-        subCategory: 'Certificates',
-        subSubCategories: ['Certificate Frames']
-      }
-    ]
+        subCategory: "Certificates",
+        subSubCategories: ["Certificate Frames"],
+      },
+    ],
   },
   {
-    category: 'Food and Beverages',
+    category: "Food and Beverages",
     subCategories: [
       {
-        subCategory: 'Gourmet',
-        subSubCategories: ['Dry Fruits']
+        subCategory: "Gourmet",
+        subSubCategories: ["Dry Fruits"],
       },
       {
-        subCategory: 'Sweets and Chocolates',
-        subSubCategories: ['Chocolates', 'Indian Sweets']
+        subCategory: "Sweets and Chocolates",
+        subSubCategories: ["Chocolates", "Indian Sweets"],
       },
       {
-        subCategory: 'Gift Hampers',
-        subSubCategories: ['Curated Sweets & Chocolate Hampers']
-      }
-    ]
+        subCategory: "Gift Hampers",
+        subSubCategories: ["Curated Sweets & Chocolate Hampers"],
+      },
+    ],
   },
   {
-    category: 'Eco-Friendly Products',
+    category: "Eco-Friendly Products",
     subCategories: [
       {
-        subCategory: 'Reusable Items',
-        subSubCategories: ['Bamboo Products', 'Cloth Bags']
+        subCategory: "Reusable Items",
+        subSubCategories: ["Bamboo Products", "Cloth Bags"],
       },
       {
-        subCategory: 'Sustainable Gifts',
-        subSubCategories: ['Seed Paper Stationery', 'Jute Items']
+        subCategory: "Sustainable Gifts",
+        subSubCategories: ["Seed Paper Stationery", "Jute Items"],
       },
       {
-        subCategory: 'Green Hampers',
-        subSubCategories: ['Planters', 'Organic Kits']
-      }
-    ]
+        subCategory: "Green Hampers",
+        subSubCategories: ["Planters", "Organic Kits"],
+      },
+    ],
   },
   {
-    category: 'Premium Gifts',
+    category: "Premium Gifts",
     subCategories: [
       {
-        subCategory: 'Luxury Items',
-        subSubCategories: ['Branded Wallets', 'Watches']
+        subCategory: "Luxury Items",
+        subSubCategories: ["Branded Wallets", "Watches"],
       },
       {
-        subCategory: 'Designer Brands',
-        subSubCategories: ['Premium Pens', 'Leather Accessories']
+        subCategory: "Designer Brands",
+        subSubCategories: ["Premium Pens", "Leather Accessories"],
       },
       {
-        subCategory: 'High-End Combos',
-        subSubCategories: ['Exclusive Hampers']
-      }
-    ]
+        subCategory: "High-End Combos",
+        subSubCategories: ["Exclusive Hampers"],
+      },
+    ],
   },
   {
-    category: 'Bags & Luggage',
+    category: "Bags & Luggage",
     subCategories: [
       {
-        subCategory: 'Duffle Bags',
-        subSubCategories: []
+        subCategory: "Duffle Bags",
+        subSubCategories: [],
       },
       {
-        subCategory: 'Executive Trolley Bags',
-        subSubCategories: []
+        subCategory: "Executive Trolley Bags",
+        subSubCategories: [],
       },
       {
-        subCategory: 'Backpack Bags',
-        subSubCategories: []
+        subCategory: "Backpack Bags",
+        subSubCategories: [],
       },
       {
-        subCategory: 'Laptop Bags',
-        subSubCategories: []
+        subCategory: "Laptop Bags",
+        subSubCategories: [],
       },
       {
-        subCategory: 'Sling Bags',
-        subSubCategories: []
+        subCategory: "Sling Bags",
+        subSubCategories: [],
       },
       {
-        subCategory: 'Fanny Packs',
-        subSubCategories: []
+        subCategory: "Fanny Packs",
+        subSubCategories: [],
       },
       {
-        subCategory: 'Gym Bags',
-        subSubCategories: []
+        subCategory: "Gym Bags",
+        subSubCategories: [],
       },
       {
-        subCategory: 'Waist Pouch',
-        subSubCategories: []
-      }
-    ]
+        subCategory: "Waist Pouch",
+        subSubCategories: [],
+      },
+    ],
   },
   {
-    category: 'Event and Seasonal Gifts',
+    category: "Event and Seasonal Gifts",
     subCategories: [
       {
-        subCategory: 'Festival-Specific',
-        subSubCategories: ['Diwali Diyas', 'Christmas Ornaments', 'Holi Colors']
+        subCategory: "Festival-Specific",
+        subSubCategories: [
+          "Diwali Diyas",
+          "Christmas Ornaments",
+          "Holi Colors",
+        ],
       },
       {
-        subCategory: 'New Year Gifts',
-        subSubCategories: ['Calendars', 'Year Planners', 'Desk Organizers']
+        subCategory: "New Year Gifts",
+        subSubCategories: ["Calendars", "Year Planners", "Desk Organizers"],
       },
       {
-        subCategory: 'Thank-You Gifts',
-        subSubCategories: ['Greeting Cards', 'Custom Hampers']
-      }
-    ]
-  }
+        subCategory: "Thank-You Gifts",
+        subSubCategories: ["Greeting Cards", "Custom Hampers"],
+      },
+    ],
+  },
 ];
 
 const SubCategory = () => {
@@ -218,10 +230,14 @@ const SubCategory = () => {
     setSelectedOption(option);
     setIsDropdownOpen(false);
     const sortedProducts = [...showProducts];
-    if (option === "Price: High to Low") sortedProducts.sort((a, b) => b.price - a.price);
-    else if (option === "Price: Low to High") sortedProducts.sort((a, b) => a.price - b.price);
-    else if (option === "Name: A to Z") sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
-    else if (option === "Name: Z to A") sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
+    if (option === "Price: High to Low")
+      sortedProducts.sort((a, b) => b.price - a.price);
+    else if (option === "Price: Low to High")
+      sortedProducts.sort((a, b) => a.price - b.price);
+    else if (option === "Name: A to Z")
+      sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+    else if (option === "Name: Z to A")
+      sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
     setShowProducts(sortedProducts);
   };
 
@@ -237,7 +253,9 @@ const SubCategory = () => {
       (product) => product.category === category
     );
     setShowProducts(filteredCategoryProducts);
-    const categoryData = categoriesData.find((cat) => cat.category === category);
+    const categoryData = categoriesData.find(
+      (cat) => cat.category === category
+    );
     setSubCategories(categoryData?.subCategories || []);
   }, [category, products]);
 
@@ -246,7 +264,9 @@ const SubCategory = () => {
       <div className="flex items-center justify-center gap-4 sm:gap-8 flex-wrap">
         {subCategories.map((subCat, index) => {
           const firstProductImage =
-            products.find((product) => product.subCategory === subCat.subCategory)?.images[0] || "";
+            products.find(
+              (product) => product.subCategory === subCat.subCategory
+            )?.images[0] || "";
           return (
             <div
               key={index}
@@ -284,17 +304,20 @@ const SubCategory = () => {
             </div>
             {isDropdownOpen && (
               <div className="absolute top-full left-0 w-full bg-white border border-black rounded-lg mt-2 z-10">
-                {["Price: High to Low", "Price: Low to High", "Name: A to Z", "Name: Z to A"].map(
-                  (option) => (
-                    <div
-                      key={option}
-                      className="px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100"
-                      onClick={() => selectOption(option)}
-                    >
-                      {option}
-                    </div>
-                  )
-                )}
+                {[
+                  "Price: High to Low",
+                  "Price: Low to High",
+                  "Name: A to Z",
+                  "Name: Z to A",
+                ].map((option) => (
+                  <div
+                    key={option}
+                    className="px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100"
+                    onClick={() => selectOption(option)}
+                  >
+                    {option}
+                  </div>
+                ))}
               </div>
             )}
           </div>
@@ -303,7 +326,9 @@ const SubCategory = () => {
 
       <div className="w-full flex flex-col gap-3 md:flex-row items-center justify-center flex-wrap">
         {showProducts.slice(0, curr).map((product, index) => (
-          <Link to={`/product/${product._id}`}><Card key={index} product={product} /></Link>
+          <Link to={`/product/${product._id}`}>
+            <Card key={index} product={product} />
+          </Link>
         ))}
       </div>
 

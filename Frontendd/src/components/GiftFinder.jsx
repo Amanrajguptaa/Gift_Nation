@@ -53,7 +53,8 @@ const GiftFinder = () => {
 
         <div className="opts_ctr flex flex-col gap-6">
           <div>
-            <div className="font-bold text-lg flex gap-2">Price Range
+            <div className="font-bold text-lg flex gap-2">
+              Price Range
               <div className="mr-4 bg-[#111827] text-white px-2 rounded-sm text-sm flex items-center justify-center">{`₹${value}`}</div>
             </div>
             <div className="w-full max-w-md">
@@ -66,8 +67,12 @@ const GiftFinder = () => {
                 className="w-[90%] h-2 rounded-lg appearance-none cursor-pointer range-slider"
               />
               <div className="w-[90%] flex items-center justify-between">
-                <div className="text-xs flex items-center justify-center">₹500</div>
-                <div className="text-xs flex items-center justify-center">₹2500</div>
+                <div className="text-xs flex items-center justify-center">
+                  ₹500
+                </div>
+                <div className="text-xs flex items-center justify-center">
+                  ₹2500
+                </div>
               </div>
             </div>
           </div>
