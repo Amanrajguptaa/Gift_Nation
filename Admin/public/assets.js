@@ -11,6 +11,10 @@ export const SidebarData = [
         name: 'ProductList',
         icon:'bi bi-list'
     },
+    {
+      name: 'Enquiry',
+      icon:'bi bi-person'
+  },
 ]
 
 export const productModel = [

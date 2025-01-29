@@ -1,5 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import video from "/assets/Video1.mp4";
+import cardimg1 from "/assets/cardimg1.png";
+import cardimg2 from "/assets/cardimg2.png";
+import cardimg3 from "/assets/cardimg3.png";
+import subcatbanner from "/assets/subcatbanner.png";
+import Card from "../components/Card/Card.jsx";
+import { ShopContext } from "../context/ShopContext.jsx";
+
+const cardimgarr = [cardimg1, cardimg2, cardimg3];
 
 const categoriesData = [
   {
@@ -207,17 +216,143 @@ const categoriesData = [
 ];
 
 const Category = () => {
+  const { categoryName } = useParams();
+  const [clickedCard, setClickedCard] = useState(false);
+  const {products} = useContext(ShopContext)
+
+  // Find the category based on the URL param
+  const categoryData = categoriesData.find(
+    (cat) => cat.category === decodeURIComponent(categoryName)
+  );
+
+  if (!categoryData) {
+    return <div className="text-center text-xl mt-10">Category not found</div>;
+  }
+
+  const topPicks = products.filter((item)=>item.category === categoryName)
+
+
+  useEffect(()=>{console.log(categoryData);
+  },[])
+
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
-      <h1 className="text-center font-bold text-5xl mb-10">Categories</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {categoriesData.map((category, index) => (
-          <Link to={`/${category.category}/sub-category`}>
-            <div key={index} className="bg-white rounded-lg shadow-md p-4">
-              <h2 className="text-lg font-bold mb-2">{category.category}</h2>
+    <div className="my-10 flex items-center justify-center flex-col gap-12 px-6 sm:px-10 relative w-full text-[#111827]">
+      {/* Dynamic Category Header */}
+      <div className="text-4xl font-semibold text-center">{categoryData.category}</div>
+
+      {/* Display Subcategories */}
+        {/* <div className="flex items-center justify-center gap-4 sm:gap-8 flex-wrap">
+          {categoryData.subCategories.map((sub, index) => (
+            <div
+              key={index}
+              className="flex flex-col gap-2 items-center justify-center"
+            >
+              <img
+                src=""
+                className="rounded-full bg-gray-400 w-[50px] h-[50px] cursor-pointer"
+              />
+              <div className="text-sm">{sub.subCategory}</div>
             </div>
-          </Link>
-        ))}
+          ))}
+        </div> */}
+
+      {/* Banner Section */}
+      <div className="header_section flex flex-col items-center justify-center gap-10 w-full">
+        <div className="banner_section h-[400px] w-full rounded-xl border-2 border-[#111827]">
+          <video
+            src={video}
+            autoPlay
+            muted
+            loop
+            className="h-full w-full object-cover object-center rounded-xl"
+          ></video>
+        </div>
+      </div>
+
+      {/* Explore Collections */}
+      <div className="explore_section flex flex-col items-center justify-center gap-10 w-full">
+        <div className="text_ctr flex items-center justify-center flex-col text-center">
+          <div className="heading_ctr text-4xl font-semibold">
+            Explore {categoryData.category}
+          </div>
+          <div className="subheading_ctr text-lg mt-1">
+            Find the best items in this category.
+          </div>
+        </div>
+
+        <div className="flex items-center justify-center gap-6 sm:gap-8 flex-wrap w-full px-20 h-[300px]">
+          {categoryData.subCategories.slice(0, 3).map((sub, index) => (
+            <div
+              key={index}
+              className="flex flex-col gap-2 items-center justify-between h-full w-3/12 bg-[#EFEFEF] rounded-md border-2 border-black overflow-hidden relative"
+            >
+              <div className="text-ctr flex flex-col mt-8">
+                <div className="text-center text-lg font-semibold">
+                  {sub.subCategory}
+                </div>
+                <div className="text-center text-sm">
+                  {sub.subSubCategories.join(", ") || "Various Products"}
+                </div>
+              </div>
+              <div className="-mb-2 ">
+                <img src={cardimgarr[index]} />
+              </div>
+              <div
+                className="bi bi-plus-circle-fill bg-white text-[#111827] rounded-full px-2 py-1 absolute bottom-2 right-6 cursor-pointer"
+                onClick={() => setClickedCard(true)}
+              ></div>
+            </div>
+          ))}
+        </div>
+
+        {/* Popup Modal */}
+        <div
+          className={`h-[30%] w-[80%] flex-col gap-6 items-center justify-center bg-[#111827] absolute rounded-xl opacity-[97.5%] py-20 ${
+            clickedCard ? "flex" : "hidden"
+          }`}
+        >
+          <div className="text_ctr flex items-center justify-center flex-col text-center text-white">
+            <div className="heading_ctr text-4xl font-semibold">
+              SubCategory Name
+            </div>
+            <div className="subheading_ctr text-lg mt-1">
+              Curated gift sets for every occasion.
+            </div>
+          </div>
+          <div
+            className="bi bi-x-circle-fill text-white absolute top-10 right-10 text-3xl cursor-pointer"
+            onClick={() => setClickedCard(false)}
+          ></div>
+          <div className="banner_section h-[300px] w-[75%] rounded-xl">
+            <img
+              src={subcatbanner}
+              className="h-full w-full object-cover object-center rounded-xl"
+            />
+          </div>
+          <div className="explore_btn flex items-center justify-center bg-[#e0e0e0] rounded-full font-semibold px-8 py-4 text-sm cursor-pointer hover:bg-[#d4d4d4] duration-200 ease-in-out">
+            View All Gifts <span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span>
+          </div>
+        </div>
+      </div>
+
+      {/* Top Gifts Section */}
+      <div className="top_gifts flex items-center justify-center flex-col py-10 px-6 md:px-24 gap-6">
+        <div className="text_ctr flex items-center justify-center flex-col">
+          <div className="heading_ctr text-4xl font-semibold text-center">
+            Top Gifts in {categoryData.category}
+          </div>
+          <div className="subheading_ctr text-lg mt-1 text-center">
+            Discover what's trending
+          </div>
+        </div>
+        <div className="w-full flex flex-wrap gap-4 items-center justify-center">
+          {topPicks.slice(0,3).map((product, index) => (
+            <Card product={product}/>
+          ))}
+        </div>
+        <div className="explore_btn flex items-center justify-center bg-[#e0e0e0] rounded-full font-semibold px-8 py-4 text-sm cursor-pointer hover:bg-[#d4d4d4] duration-200 ease-in-out">
+        <Link to={`/${categoryName}/sub-category`}>View All Gifts</Link> <span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span>
+        </div>
       </div>
     </div>
   );

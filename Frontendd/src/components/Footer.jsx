@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import paymentMethods from "/assets/paymentMethods.png";
-
+import axios from "axios";
 const Footer = () => {
   const[email,setEmail] = useState("");
   const[message,setMessage] = useState("");
   const onSubmitHandler = async (e) => {
-    try {
-      e.preventDefault();
-      const response = await axios.post(
-        "https://gift-nation.onrender.com/api/enquiry/add-enquiry",
-        { email,message }
-      );
-      console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  e.preventDefault();
+  try {
+    const response = await axios.post(
+      "https://gift-nation.onrender.com/api/enquiry/add-enquiry",
+      { email, message }
+    );
+    setEmail('');
+    setMessage('');
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+};
   return (
     <div className="w-full bg-[#111827] px-10 sm:px-20 py-8 pb-10 flex flex-col gap-4">
       <div className="top_ctr flex items-start justify-between w-full h-auto py-6 flex-wrap md:flex-nowrap">

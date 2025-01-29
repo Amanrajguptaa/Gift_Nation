@@ -6,6 +6,7 @@ import ProductForm from './components/ProductForm.jsx';
 import ProductList from './components/ProductList.jsx';
 import Header from './components/Header.jsx';
 import Dashboard from './components/Dashboard.jsx';
+import Enquiry from './components/Enquiry.jsx';
 
 const App = () => {
   const [token, setToken] = useState('');
@@ -33,6 +34,7 @@ const App = () => {
                 <Route path="/Dashboard" element={<Dashboard token={token} />} />
                 <Route path="/AddProduct" element={<ProductForm token={token} />} />
                 <Route path="/ProductList" element={<ProductList token={token} />} />
+                <Route path="/Enquiry" element={<Enquiry />} />
                 <Route path="*" element={<Navigate to="/Dashboard" />} />
               </Routes>
             </div>

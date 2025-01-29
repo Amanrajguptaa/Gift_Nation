@@ -13,7 +13,7 @@ import Category from "./pages/Category.jsx";
 import SignUp from "./pages/SignUp.jsx";
 import Login from "./pages/Login.jsx";
 import Checkout from "./pages/Checkout.jsx";
-
+import Categorytest from "./pages/Categorytest.jsx";
 const App = () => {
   const token = localStorage.getItem("token");
 
@@ -23,7 +23,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/categories" element={<Category />} />
+        <Route path="/categories" element={<Categorytest />} />
+        <Route path="/category/:categoryName" element={<Category />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />

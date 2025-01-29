@@ -2,32 +2,209 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const FeaturedCategoriesSection = () => {
-  const cardsData = [
+  const categoriesData = [
     {
-      FomoText: "Hurry! Limited-time gifts.",
-      BtnCta: "Shop Now",
+      "category": "Electronics and Gadgets",
+      "BtnCta": "Browse Now",
+      "subCategories": [
+        {
+          "subCategory": "Portable Electronics",
+          "subSubCategories": ["Power Banks", "Bluetooth Speakers", "Earphones"]
+        },
+        {
+          "subCategory": "Home Gadgets",
+          "subSubCategories": ["Smart Plugs", "Air Purifiers"]
+        },
+        {
+          "subCategory": "Tech Accessories",
+          "subSubCategories": ["Charging Cables", "Laptop Stands", "Wireless Chargers"]
+        }
+      ]
     },
     {
-      FomoText: "Trending gifts—don’t miss out!",
-      BtnCta: "Explore Now",
+      "category": "Office Essentials",
+      "BtnCta": "Shop Now",
+      "subCategories": [
+        {
+          "subCategory": "Stationery",
+          "subSubCategories": ["Diaries", "Notebooks", "Sticky Notes"]
+        },
+        {
+          "subCategory": "Organizers",
+          "subSubCategories": ["Desk Organizers", "Calendars"]
+        },
+        {
+          "subCategory": "Writing Instruments",
+          "subSubCategories": ["Premium Pens", "Stylus Pens"]
+        }
+      ]
     },
     {
-      FomoText: "Perfect gifts, while they last!",
-      BtnCta: "Discover More",
+      "category": "Drinkware",
+      "BtnCta": "Grab Yours",
+      "subCategories": [
+        {
+          "subCategory": "Bottles",
+          "subSubCategories": ["Stainless Steel", "Vacuum Bottles", "Copper Bottles"]
+        },
+        {
+          "subCategory": "Mugs and Tumblers",
+          "subSubCategories": ["Coffee Mugs", "Insulated Tumblers"]
+        },
+        {
+          "subCategory": "Gift Sets",
+          "subSubCategories": ["Bottle and Mug Combos"]
+        }
+      ]
     },
     {
-      FomoText: "Exclusive deals for you!",
-      BtnCta: "Grab Yours",
+      "category": "Apparel",
+      "BtnCta": "Check It Out",
+      "subCategories": [
+        {
+          "subCategory": "T-Shirts",
+          "subSubCategories": ["Polo", "Round Neck", "Custom Printed"]
+        },
+        {
+          "subCategory": "Jackets",
+          "subSubCategories": ["Windcheaters", "Hoodies"]
+        },
+        {
+          "subCategory": "Uniforms",
+          "subSubCategories": ["Corporate Branding Uniforms"]
+        }
+      ]
     },
     {
-      FomoText: "Loved by all—get yours!",
-      BtnCta: "Check It Out",
+      "category": "Awards and Recognition",
+      "BtnCta": "Discover More",
+      "subCategories": [
+        {
+          "subCategory": "Trophies",
+          "subSubCategories": ["Metal", "Crystal", "Wooden", "Acrylic"]
+        },
+        {
+          "subCategory": "Plaques",
+          "subSubCategories": ["Customized Engravings"]
+        },
+        {
+          "subCategory": "Certificates",
+          "subSubCategories": ["Certificate Frames"]
+        }
+      ]
     },
     {
-      FomoText: "Unique finds, act fast!",
-      BtnCta: "Browse Now",
+      "category": "Food and Beverages",
+      "BtnCta": "Explore Now",
+      "subCategories": [
+        {
+          "subCategory": "Gourmet",
+          "subSubCategories": ["Dry Fruits"]
+        },
+        {
+          "subCategory": "Sweets and Chocolates",
+          "subSubCategories": ["Chocolates", "Indian Sweets"]
+        },
+        {
+          "subCategory": "Gift Hampers",
+          "subSubCategories": ["Curated Sweets & Chocolate Hampers"]
+        }
+      ]
     },
-  ];
+    {
+      "category": "Eco-Friendly Products",
+      "BtnCta": "Hurry! Limited-time gifts.",
+      "subCategories": [
+        {
+          "subCategory": "Reusable Items",
+          "subSubCategories": ["Bamboo Products", "Cloth Bags"]
+        },
+        {
+          "subCategory": "Sustainable Gifts",
+          "subSubCategories": ["Seed Paper Stationery", "Jute Items"]
+        },
+        {
+          "subCategory": "Green Hampers",
+          "subSubCategories": ["Planters", "Organic Kits"]
+        }
+      ]
+    },
+    {
+      "category": "Premium Gifts",
+      "BtnCta": "Perfect gifts, while they last!",
+      "subCategories": [
+        {
+          "subCategory": "Luxury Items",
+          "subSubCategories": ["Branded Wallets", "Watches"]
+        },
+        {
+          "subCategory": "Designer Brands",
+          "subSubCategories": ["Premium Pens", "Leather Accessories"]
+        },
+        {
+          "subCategory": "High-End Combos",
+          "subSubCategories": ["Exclusive Hampers"]
+        }
+      ]
+    },
+    {
+      "category": "Bags & Luggage",
+      "BtnCta": "Trending gifts—don’t miss out!",
+      "subCategories": [
+        {
+          "subCategory": "Duffle Bags",
+          "subSubCategories": []
+        },
+        {
+          "subCategory": "Executive Trolley Bags",
+          "subSubCategories": []
+        },
+        {
+          "subCategory": "Backpack Bags",
+          "subSubCategories": []
+        },
+        {
+          "subCategory": "Laptop Bags",
+          "subSubCategories": []
+        },
+        {
+          "subCategory": "Sling Bags",
+          "subSubCategories": []
+        },
+        {
+          "subCategory": "Fanny Packs",
+          "subSubCategories": []
+        },
+        {
+          "subCategory": "Gym Bags",
+          "subSubCategories": []
+        },
+        {
+          "subCategory": "Waist Pouch",
+          "subSubCategories": []
+        }
+      ]
+    },
+    {
+      "category": "Event and Seasonal Gifts",
+      "BtnCta": "Exclusive deals for you!",
+      "subCategories": [
+        {
+          "subCategory": "Festival-Specific",
+          "subSubCategories": ["Diwali Diyas", "Christmas Ornaments", "Holi Colors"]
+        },
+        {
+          "subCategory": "New Year Gifts",
+          "subSubCategories": ["Calendars", "Year Planners", "Desk Organizers"]
+        },
+        {
+          "subCategory": "Thank-You Gifts",
+          "subSubCategories": ["Greeting Cards", "Custom Hampers"]
+        }
+      ]
+    }
+  ]
+  
 
   return (
     <div className="main_ctr flex items-center justify-center flex-col py-10 px-10 sm:px-16 gap-6">
@@ -40,7 +217,8 @@ const FeaturedCategoriesSection = () => {
         </div>
       </div>
       <div className="cards_ctr w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {cardsData.map((cardData, index) => (
+        {categoriesData.slice(4,10).map((cardData, index) => (
+          <Link to={`/category/${cardData.category}`}>
           <div
             key={index}
             className={`card py-8 px-8 rounded-lg sm:flex flex-col gap-3 ${
@@ -50,12 +228,13 @@ const FeaturedCategoriesSection = () => {
             <div className="font-semibold text-xl">{`Category ${
               index + 1
             }`}</div>
-            <div className="text-md">{cardData.FomoText}</div>
+            <div className="text-md">{cardData.category}</div>
             <div className="text-sm font-semibold cursor-pointer flex items-center">
               {cardData.BtnCta}
               <span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span>
             </div>
           </div>
+          </Link>
         ))}
       </div>
       <Link to={"/categories"}>
