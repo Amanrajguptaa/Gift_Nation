@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
+    googleId:{
+        type:String,
+        required:false
+    },
     name: {
         type: String,
         required: true
@@ -13,6 +17,10 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    image:{
+        type:String,
+        required:false
     },
     cartData:{
         type: Object,

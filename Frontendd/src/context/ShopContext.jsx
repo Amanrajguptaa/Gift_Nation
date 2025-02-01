@@ -1,11 +1,31 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
   const backendUrl = "https://gift-nation.onrender.com";
   const [cartItems, setCartItems] = useState({});
   const [products, setProducts] = useState([]);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+
+	const getUser = async () => {
+		try {
+			const url = `http://localhost:8000/auth/login/success`;
+			const response = await axios.get(url, { withCredentials: true });
+      setUser(response.data.user)
+      localStorage.setItem('token',response.data.user.token)
+      navigate("/");
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	useEffect(() => {
+		getUser();
+	}, []);
 
   const getData = async () => {
     try {

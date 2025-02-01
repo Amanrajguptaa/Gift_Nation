@@ -9,7 +9,7 @@ import SubCategory from "./pages/SubCategory.jsx";
 import Footer from "./components/Footer.jsx";
 import Wishlist from "./pages/Wishlist.jsx";
 import Category from "./pages/Category.jsx";
-import SignUp from "./pages/SignUp.jsx";
+import SignUp from "./pages/SignUp/SignUp.jsx";
 import Login from "./pages/Login.jsx";
 import Checkout from "./pages/Checkout.jsx";
 import AllCategoriesPage from './pages/AllCategoriesPage.jsx';
@@ -32,7 +32,6 @@ const App = () => {
             <Route path="/product/:ProductId" element={<Product />} />
             <Route path="/:category/sub-category" element={<SubCategory />} />
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="*" element={<Navigate to="/" />} />
           </>
         ) : (
           <>
@@ -46,7 +45,6 @@ const App = () => {
             <Route path="/product/:ProductId" element={<Navigate to="/signup" />} />
             <Route path="/:category/sub-category" element={<Navigate to="/signup" />} />
             <Route path="/checkout" element={<Navigate to="/signup" />} />
-            <Route path="*" element={<Navigate to="/" />} />
           </>
         )}
       </Routes>
