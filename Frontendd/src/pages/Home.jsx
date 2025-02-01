@@ -5,6 +5,11 @@ import FeaturedCategoriesSection from "../components/FeaturedCategoriesSection.j
 import SectionByLabel from "../components/SectionByLabel/SectionByLabel.jsx";
 import CtaBannerSection from "../components/CtaBannerSection.jsx";
 import GiftFinder from "../components/GiftFinder.jsx";
+import Testimonials from '../components/Testimonials.jsx'
+import NewsLetter from '../components/NewsLetter.jsx'
+import Stats from '../components/Stats.jsx'
+import QueryForm from '../components/QueryForm.jsx'
+
 import { ShopContext } from "../context/ShopContext.jsx";
 
 const Home = () => {
@@ -22,11 +27,13 @@ const Home = () => {
       <FeaturedCategoriesSection />
       <SectionByLabel label="Trending Picks" products={topProducts} />
       <CtaBannerSection />
-      <SectionByLabel label="Low Price" products={lowProducts} />
       <GiftFinder />
-      <SectionByLabel label="Mid Price" products={midProducts} />
       <CtaBannerSection />
       <SectionByLabel label="Most Loved" products={randomProducts} />
+      <Testimonials/>
+      <NewsLetter/>
+      <Stats/>
+      <QueryForm/>
     </div>
   );
 };

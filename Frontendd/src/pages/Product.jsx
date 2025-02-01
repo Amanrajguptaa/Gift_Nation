@@ -145,8 +145,27 @@ const Product = () => {
                 )}
               </div>
             </div>
+            
           </div>
+
+          <div className="lower_ctr w-full flex py-6 items-center justify-center gap-10">
+            {[...Array(4)].map((_, index) => (
+              <div
+                key={index}
+                className="flex flex-col gap-2 items-center justify-center"
+              >
+                <div
+                  className="rounded-full bg-[#e0e0e0] w-[50px] h-[50px] cursor-pointer">
+                </div>
+                <div className="text-xs md:text-md text-center">
+                  Feature {index + 1}
+                </div>
+              </div>
+            ))}
+          </div>
+          
         </div>
+        
       </div>
 
       <div className="desc_ctr w-full border-y border-black flex flex-col gap-2 py-10 mt-10">

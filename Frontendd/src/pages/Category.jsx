@@ -218,7 +218,7 @@ const categoriesData = [
 const Category = () => {
   const { categoryName } = useParams();
   const [clickedCard, setClickedCard] = useState(false);
-  const {products} = useContext(ShopContext)
+  const { products } = useContext(ShopContext);
 
   // Find the category based on the URL param
   const categoryData = categoriesData.find(
@@ -229,32 +229,34 @@ const Category = () => {
     return <div className="text-center text-xl mt-10">Category not found</div>;
   }
 
-  const topPicks = products.filter((item)=>item.category === categoryName)
+  const topPicks = products.filter((item) => item.category === categoryName);
 
-
-  useEffect(()=>{console.log(categoryData);
-  },[])
+  useEffect(() => {
+    console.log(categoryData);
+  }, []);
 
   return (
     <div className="my-10 flex items-center justify-center flex-col gap-12 px-6 sm:px-10 relative w-full text-[#111827]">
       {/* Dynamic Category Header */}
-      <div className="text-4xl font-semibold text-center">{categoryData.category}</div>
+      <div className="text-4xl font-semibold text-center">
+        {categoryData.category}
+      </div>
 
       {/* Display Subcategories */}
-        {/* <div className="flex items-center justify-center gap-4 sm:gap-8 flex-wrap">
-          {categoryData.subCategories.map((sub, index) => (
-            <div
-              key={index}
-              className="flex flex-col gap-2 items-center justify-center"
-            >
-              <img
+      <div className="flex items-center justify-center gap-4 sm:gap-8 flex-wrap">
+        {[...Array(4)].map((_, index) => (
+          <div
+            key={index}
+            className="flex flex-col gap-2 items-center justify-center"
+          >
+            <div className="rounded-full bg-gray-400 w-[50px] h-[50px] cursor-pointer"></div>
+            {/* <img
                 src=""
-                className="rounded-full bg-gray-400 w-[50px] h-[50px] cursor-pointer"
-              />
-              <div className="text-sm">{sub.subCategory}</div>
-            </div>
-          ))}
-        </div> */}
+              /> */}
+            {/* <div className="text-sm">{sub.subCategory}</div> */}
+          </div>
+        ))}
+      </div>
 
       {/* Banner Section */}
       <div className="header_section flex flex-col items-center justify-center gap-10 w-full">
@@ -307,7 +309,7 @@ const Category = () => {
 
         {/* Popup Modal */}
         <div
-          className={`h-[30%] w-[80%] flex-col gap-6 items-center justify-center bg-[#111827] absolute rounded-xl opacity-[97.5%] py-20 ${
+          className={`h-[35%] w-[80%] flex-col gap-6 items-center justify-center bg-[#111827] absolute rounded-xl opacity-[97.5%] py-20 ${
             clickedCard ? "flex" : "hidden"
           }`}
         >
@@ -330,7 +332,8 @@ const Category = () => {
             />
           </div>
           <div className="explore_btn flex items-center justify-center bg-[#e0e0e0] rounded-full font-semibold px-8 py-4 text-sm cursor-pointer hover:bg-[#d4d4d4] duration-200 ease-in-out">
-            View All Gifts <span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span>
+            View All Gifts{" "}
+            <span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span>
           </div>
         </div>
       </div>
@@ -346,12 +349,15 @@ const Category = () => {
           </div>
         </div>
         <div className="w-full flex flex-wrap gap-4 items-center justify-center">
-          {topPicks.slice(0,3).map((product, index) => (
-            <Card product={product}/>
+          {topPicks.slice(0, 3).map((product, index) => (
+          <Link to={`/product/${product._id}`}>
+            <Card product={product} />
+            </Link>
           ))}
         </div>
         <div className="explore_btn flex items-center justify-center bg-[#e0e0e0] rounded-full font-semibold px-8 py-4 text-sm cursor-pointer hover:bg-[#d4d4d4] duration-200 ease-in-out">
-        <Link to={`/${categoryName}/sub-category`}>View All Gifts</Link> <span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span>
+          <Link to={`/${categoryName}/sub-category`}>View All Gifts</Link>{" "}
+          <span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span>
         </div>
       </div>
     </div>

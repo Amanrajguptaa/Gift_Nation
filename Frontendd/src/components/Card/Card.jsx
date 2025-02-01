@@ -16,15 +16,15 @@ const Card = ({ product }) => {
   return (
     <>
       <div className="card p-4 rounded-lg bg-[#e0e0e0]  sm:h-[325px] sm:w-[90%] md:h-[375px] md:w-[300px] h-[180px] flex md:flex-col gap-4 w-full">
-        <div className="img_ctr bg-white rounded-lg h-full md:h-[60%] relative w-6/12 md:w-full flex justify-center items-center">
+        <div className="img_ctr bg-white rounded-lg h-full md:h-[60%] relative w-6/12 md:w-full flex justify-center items-center ">
           <img
-            className="h-full w-full object-cover"
+            className="h-60 w-60 md:h-full md:w-full object-contain md:object-cover"
             src={product.images?.[0] || ""}
             alt={product.name || "Name"}
           />
           <div
             className={`bi bi-heart-fill border border-black px-[6px] py-1 sm:scale-[1.2] w-fit rounded-full text-xs absolute right-2 top-2 cursor-pointer ${
-              isHeart ? "bg-red-600 text-white heart-bounce" : ""
+              isHeart ? "bg-red-600 text-white heart-bounce " : "bg-white "
             }`}
             onClick={toggleHeart}
           ></div>
