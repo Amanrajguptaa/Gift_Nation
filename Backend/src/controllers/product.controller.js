@@ -1,5 +1,5 @@
 import productModel from "../models/product.model.js";
-import {v2 as cloudinary} from 'cloudinary';
+import { v2 as cloudinary } from "cloudinary";
 
 const addProduct = async (req, res) => {
   try {
@@ -15,7 +15,7 @@ const addProduct = async (req, res) => {
       discount,
       tag1,
       tag2,
-      tag3
+      tag3,
     } = req.body;
 
     const image1 = req.files.image1?.[0];
@@ -45,7 +45,7 @@ const addProduct = async (req, res) => {
       })
     );
 
-    const tags = [tag1, tag2, tag3].filter((tag) => tag); 
+    const tags = [tag1, tag2, tag3].filter((tag) => tag);
 
     const productData = {
       name,
@@ -55,7 +55,7 @@ const addProduct = async (req, res) => {
       category,
       subCategory,
       subSubCategory,
-      discount: discount ? Number(discount) : 0, 
+      discount: discount ? Number(discount) : 0,
       bestSeller: bestSeller === "true",
       images: imagesUrl,
       tags: tags,
@@ -75,22 +75,21 @@ const addProduct = async (req, res) => {
   }
 };
 
-const listProducts = async(req,res)=>{
-    try {
-        const products = await productModel.find({});
-        res.json({
-            success:true,
-            products
-        })
-    } catch (error) {
-        console.log(error)
-        res.json({
-            success:false,
-            message:error.message
-        })
-    }
-
-}
+const listProducts = async (req, res) => {
+  try {
+    const products = await productModel.find({});
+    res.json({
+      success: true,
+      products,
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
 
 const editProduct = async (req, res) => {
   try {
@@ -107,7 +106,7 @@ const editProduct = async (req, res) => {
       discount,
       tag1,
       tag2,
-      tag3
+      tag3,
     } = req.body;
 
     const product = await productModel.findById(productId);
@@ -148,7 +147,7 @@ const editProduct = async (req, res) => {
 
     imagesUrl = imagesUrl.length > 0 ? imagesUrl : product.images;
 
-    const tags = [tag1, tag2, tag3].filter((tag) => tag); 
+    const tags = [tag1, tag2, tag3].filter((tag) => tag);
 
     const updatedProductData = {
       name,
@@ -185,39 +184,39 @@ const editProduct = async (req, res) => {
   }
 };
 
-const removeProduct = async(req,res)=>{
-    try {
-      const { productId } = req.params;
-       await productModel.findByIdAndDelete(productId) 
-       res.json({
-        success:true,
-        message:"Product Removed"
-       })
-    } catch (error) {
-        console.log(error);
-        res.json({
-            success:false,
-            message:error.message
-        })
-    }
-}
+const removeProduct = async (req, res) => {
+  try {
+    const { productId } = req.params;
+    await productModel.findByIdAndDelete(productId);
+    res.json({
+      success: true,
+      message: "Product Removed",
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
 
 const singleProduct = async (req, res) => {
-    try {
-      const { productId } = req.params; 
-      const product = await productModel.findById(productId);
-  
-      res.json({
-        success: true,
-        product,
-      });
-    } catch (error) {
-      console.log(error);
-      res.json({
-        success: false,
-        message: error.message,
-      });
-    }
+  try {
+    const { productId } = req.params;
+    const product = await productModel.findById(productId);
+
+    res.json({
+      success: true,
+      product,
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
 };
-  
-export {addProduct,listProducts,editProduct,removeProduct,singleProduct}
+
+export { addProduct, listProducts, editProduct, removeProduct, singleProduct };

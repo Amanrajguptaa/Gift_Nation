@@ -12,7 +12,7 @@ const addToCart = async (req, res) => {
     let cartData = userData.cartData || {};
 
     if (cartData[itemId]) {
-      cartData[itemId].quantity += quantity; 
+      cartData[itemId].quantity += quantity;
     } else {
       cartData[itemId] = { quantity };
     }
@@ -35,10 +35,10 @@ const updateCart = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    let cartData = userData.cartData || {}; 
+    let cartData = userData.cartData || {};
 
     if (cartData[itemId]) {
-      cartData[itemId].quantity = quantity; 
+      cartData[itemId].quantity = quantity;
     } else {
       return res.status(404).json({ message: "Item not found in cart" });
     }
