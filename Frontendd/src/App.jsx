@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Home from "./pages/Home.jsx";
@@ -16,6 +18,12 @@ import AllCategoriesPage from './pages/AllCategoriesPage.jsx';
 
 const App = () => {
   const token = localStorage.getItem("token");
+
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
 
   return (
     <>

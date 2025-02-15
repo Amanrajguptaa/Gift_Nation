@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CategoryCard from "../components/CategoryCard.jsx";
 import CtaBannerSection from '../components/CtaBannerSection'
 const emotes = [
@@ -17,7 +17,14 @@ const emotes = [
   "🍫",
 ];
 
+
 const AllCategoriesPage = () => {
+
+  useEffect(()=>{
+    console.log("heelo");
+    
+  },[])
+
   return (
     <div className="main_ctr flex items-center justify-center flex-col py-10 px-6 md:px-24 gap-6">
       <div className="text_ctr flex items-center justify-center flex-col">

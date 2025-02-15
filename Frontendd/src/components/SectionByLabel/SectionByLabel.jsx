@@ -17,7 +17,8 @@ const SectionByLabel = ({ label, products }) => {
       <div className="w-full flex flex-col gap-3 md:flex-row items-center justify-center">
         {products.map((product, index) => {
           return (
-            <Link to={`/product/${product._id}`}>
+            
+            <Link onClick={() => scrollTo(0, 0)} to={`/product/${product._id}`}>
               <Card product={product} />
             </Link>
           );

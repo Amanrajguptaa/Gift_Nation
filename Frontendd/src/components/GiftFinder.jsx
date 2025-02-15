@@ -39,7 +39,7 @@ const GiftFinder = () => {
   };
 
   return (
-    <div className="main_ctr sm:min-h-[500px] min-h-lvh my-12 sm:mx-20 sm:px-16 sm:py-2 mx-4 px-6 py-8 bg-[#efefef] rounded-xl items-center justify-between gap-2 flex sm:flex-row flex-col">
+    <div id="gift_finder" className="main_ctr sm:min-h-[500px] min-h-lvh my-12 sm:mx-20 sm:px-16 sm:py-2 mx-4 px-6 py-8 bg-[#efefef] rounded-xl items-center justify-between gap-2 flex sm:flex-row flex-col">
       <div className="left_div sm:w-6/12 flex flex-col gap-6">
         <div className="title_ctr">
           <div className="font-bold text-2xl sm:text-3xl ">

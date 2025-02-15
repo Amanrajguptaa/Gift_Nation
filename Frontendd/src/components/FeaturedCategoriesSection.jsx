@@ -204,7 +204,6 @@ const FeaturedCategoriesSection = () => {
       ]
     }
   ]
-  
 
   return (
     <div className="main_ctr flex items-center justify-center flex-col py-10 px-10 sm:px-16 gap-6">
@@ -237,8 +236,8 @@ const FeaturedCategoriesSection = () => {
           </Link>
         ))}
       </div>
-      <Link to={"/categories"}>
-        <button className="explore_btn flex items-center justify-center bg-[#111827] rounded-full text-white px-8 py-4 text-sm cursor-pointer hover:bg-[#1d283f] duration-200 ease-in-out">
+      <Link onClick={() => scrollTo(0, 0)} to={'/categories'}>
+        <button  className="explore_btn flex items-center justify-center bg-[#111827] rounded-full text-white px-8 py-4 text-sm cursor-pointer hover:bg-[#1d283f] duration-200 ease-in-out">
           Explore Collections
           <span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span>
         </button>
