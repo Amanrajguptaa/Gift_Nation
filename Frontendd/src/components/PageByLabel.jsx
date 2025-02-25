@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "../Card/Card";
+import Card from "../components/Card/Card";
 
 const PageByLabel = () => {
   const [curr, setCurr] = useState(3);
@@ -88,9 +88,9 @@ const PageByLabel = () => {
       </div>
 
       <div className="w-full flex flex-col gap-3 md:flex-row items-center justify-center flex-wrap">
-        {[...Array(18)].slice(0, curr).map((_, index) => (
+        {/* {[...Array(18)].slice(0, curr).map((_, index) => (
           <Card key={index} />
-        ))}
+        ))} */}
       </div>
 
       <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">

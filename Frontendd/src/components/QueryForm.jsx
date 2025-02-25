@@ -1,22 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 
 const QueryForm = () => {
+  const [name,setName] = useState('');
+  const [email,setEmail] = useState('');
+  const [query,setQuery] = useState('');
+
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "https://gift-nation.onrender.com/api/enquiry/add-enquiry",
+        { name,email, query }
+      );
+      setName('');
+      setEmail('');
+      setQuery('');
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };  
+
   return (
     <div className="flex flex-col-reverse items-center justify-center px-4 sm:px-20 sm:mx-20 my-10 gap-6">
       <div className="w-full bg-[#111827] text-[#111827] p-8 rounded-lg shadow-lg">
-        <form className="flex flex-col gap-4 items-center justify-center">
+        <form
+        onSubmit={onSubmitHandler} className="flex flex-col gap-4 items-center justify-center">
           <input
             type="text"
+            name="name"
+            onChange={(e)=>setName(e.target.value)}
+            value={name}
             placeholder="Your Name"
             className="p-3 border bg-[#e0e0e0] border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white w-full"
           />
           <input
             type="email"
+            name="email"
+            onChange={(e)=>setEmail(e.target.value)}
+            value={email}
             placeholder="Your Email"
             className="p-3 border bg-[#e0e0e0] border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white w-full"
           />
           <textarea
             placeholder="Your Query"
+            name="query"
+            onChange={(e)=>setQuery(e.target.value)}
+            value={query}
             rows="4"
             className="p-3 border bg-[#e0e0e0] border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white w-full"
           />
@@ -27,7 +57,7 @@ const QueryForm = () => {
                 <div className="rounded-full border border-white px-[9px] py-1 bi bi-envelope hover:bg-white hover:text-[#111827] cursor-pointer duration-200 ease-in-out"></div>
                 <div className="rounded-full border border-white px-[9px] py-1 bi bi-telephone hover:bg-white hover:text-[#111827] cursor-pointer duration-200 ease-in-out"></div>
             </div>
-            <button className="bg-[#111827] border border-white text-white font-semibold py-3 rounded-md hover:bg-white hover:text-[#111827] duration-200 ease-in-out transition w-full">
+            <button type="submit" className="bg-[#111827] border border-white text-white font-semibold py-3 rounded-md hover:bg-white hover:text-[#111827] duration-200 ease-in-out transition w-full">
               Send Message
             </button>
           </div>

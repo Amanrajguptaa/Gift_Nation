@@ -216,16 +216,30 @@ const SubCategory = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("Sort Products By ...");
   const [showProducts, setShowProducts] = useState([]);
+  const [subSubCategories, setSubSubCategories] = useState([]);
+  const [selectedSubSubCategory, setSelectedSubSubCategory] = useState("");
+
+  useEffect(() => {
+    const categoryData = categoriesData.find(
+      (cat) => cat.category === category
+    );
+    if (categoryData) {
+      setSubCategories(categoryData.subCategories || []);
+      const allSubSubCategories = categoryData.subCategories.flatMap(
+        (subCat) => subCat.subSubCategories
+      );
+      setSubSubCategories(allSubSubCategories);
+    }
+    const filteredProducts = products.filter(
+      (product) => product.category === category
+    );
+    setShowProducts(filteredProducts);
+  }, [category, products]);
 
   const handleLoadMore = () => {
     setCurr((prevCurr) => prevCurr + 3);
-    setTimeout(() => {
-      const loadMoreButton = document.getElementById("load-more-btn");
-      loadMoreButton?.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 100);
   };
 
-  const toggleDropdown = () => setIsDropdownOpen((prevState) => !prevState);
   const selectOption = (option) => {
     setSelectedOption(option);
     setIsDropdownOpen(false);
@@ -241,26 +255,16 @@ const SubCategory = () => {
     setShowProducts(sortedProducts);
   };
 
-  const handleDisplayProducts = (subCategory) => {
+  const handleFilterBySubSubCategory = (value) => {
+    setSelectedSubSubCategory(value);
     const filteredProducts = products.filter(
-      (product) => product.subCategory === subCategory.subCategory
+      (product) => product.subSubCategory === value
     );
     setShowProducts(filteredProducts);
   };
 
-  useEffect(() => {
-    const filteredCategoryProducts = products.filter(
-      (product) => product.category === category
-    );
-    setShowProducts(filteredCategoryProducts);
-    const categoryData = categoriesData.find(
-      (cat) => cat.category === category
-    );
-    setSubCategories(categoryData?.subCategories || []);
-  }, [category, products]);
-
   return (
-    <div className="my-10 flex items-center justify-center flex-col gap-8 px-6 sm:px-10 relative">
+    <div className="my-10 flex items-center justify-center flex-col gap-8 px-6 sm:px-10">
       <div className="flex items-center justify-center gap-4 sm:gap-8 flex-wrap">
         {subCategories.map((subCat, index) => {
           const firstProductImage =
@@ -271,12 +275,12 @@ const SubCategory = () => {
             <div
               key={index}
               className="flex flex-col gap-2 items-center justify-center cursor-pointer"
-              onClick={() => handleDisplayProducts(subCat)}
+              onClick={() => handleFilterBySubSubCategory(subCat.subCategory)}
             >
               <img
                 src={firstProductImage}
                 alt={subCat.subCategory}
-                className="rounded-full bg-gray-400 w-[50px] h-[50px]"
+                className="rounded-full w-12 h-12"
               />
               <div className="text-sm">{subCat.subCategory}</div>
             </div>
@@ -284,65 +288,62 @@ const SubCategory = () => {
         })}
       </div>
 
-      <div className="sm:w-[75%] w-full flex sm:flex-row flex-col items-center justify-center gap-4 sm:gap-10">
-        <div className="flex items-center justify-center rounded-lg sm:w-6/12 w-full">
-          <input
-            type="text"
-            placeholder="Search Products Here"
-            className="rounded-lg p-2 pl-4 pr-8 bg-[#e0e0e0]/25 placeholder:text-black/75 border border-black rounded-r-none border-r-0 w-full focus:outline-none active:outline-none"
-          />
-          <div className="bi bi-search flex items-center justify-center px-4 bg-[#111827] py-[13px] text-white rounded-lg rounded-l-none cursor-pointer"></div>
-        </div>
-        <div className="flex items-center justify-center rounded-lg sm:w-6/12 w-full">
-          <div className="relative w-full">
-            <div
-              className="rounded-lg px-4 py-2 bg-[#e0e0e0]/25 placeholder:text-black/75 border border-black w-full flex items-center justify-between cursor-pointer"
-              onClick={toggleDropdown}
-            >
-              <span>{selectedOption}</span>
-              <div className="bi bi-chevron-down flex items-center justify-center px-4 text-white bg-[#111827] rounded-lg py-3 absolute right-0"></div>
-            </div>
-            {isDropdownOpen && (
-              <div className="absolute top-full left-0 w-full bg-white border border-black rounded-lg mt-2 z-10">
-                {[
-                  "Price: High to Low",
-                  "Price: Low to High",
-                  "Name: A to Z",
-                  "Name: Z to A",
-                ].map((option) => (
-                  <div
-                    key={option}
-                    className="px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-100"
-                    onClick={() => selectOption(option)}
-                  >
-                    {option}
-                  </div>
-                ))}
-              </div>
-            )}
+      <div className="w-full flex flex-col sm:flex-row gap-4">
+        <select
+          className="p-2 bg-gray-100 border rounded w-full"
+          value={selectedSubSubCategory}
+          onChange={(e) => handleFilterBySubSubCategory(e.target.value)}
+        >
+          {subSubCategories.map((subSub, index) => (
+            <option key={index} value={subSub}>
+              {subSub}
+            </option>
+          ))}
+        </select>
+
+        <div className="relative w-full z-10">
+          <div
+            className="p-2 bg-gray-100 border rounded cursor-pointer"
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          >
+            {selectedOption}
           </div>
+          {isDropdownOpen && (
+            <div className="absolute w-full bg-white border rounded mt-2">
+              {[
+                "Price: High to Low",
+                "Price: Low to High",
+                "Name: A to Z",
+                "Name: Z to A",
+              ].map((option) => (
+                <div
+                  key={option}
+                  className="p-2 cursor-pointer hover:bg-gray-200"
+                  onClick={() => selectOption(option)}
+                >
+                  {option}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
-      <div className="w-full flex flex-col gap-3 md:flex-row items-center justify-center flex-wrap">
+      <div className="flex flex-wrap gap-4">
         {showProducts.slice(0, curr).map((product, index) => (
-          <Link to={`/product/${product._id}`}>
-            <Card key={index} product={product} />
+          <Link to={`/product/${product._id}`} key={index}>
+            <Card product={product} />
           </Link>
         ))}
       </div>
 
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-        <button
-          id="load-more-btn"
-          className="flex items-center justify-center bg-[#111827] rounded-full text-white px-8 py-4 text-xs sm:text-sm cursor-pointer hover:bg-[#1d283f] duration-200 ease-in-out disabled:opacity-50"
-          onClick={handleLoadMore}
-          disabled={curr >= showProducts.length}
-        >
-          Load More Products
-          <span className="bi bi-chevron-down ml-2 flex items-center justify-center"></span>
-        </button>
-      </div>
+      <button
+        className="bg-black text-white px-6 py-2 rounded mt-4"
+        onClick={handleLoadMore}
+        disabled={curr >= showProducts.length}
+      >
+        Load More
+      </button>
     </div>
   );
 };

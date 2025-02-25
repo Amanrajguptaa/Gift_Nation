@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Cardstyle.css";
 
 const Card = ({ product }) => {
@@ -12,6 +12,8 @@ const Card = ({ product }) => {
   const handleAddToCart = () => {
     setIsAdded(!isAdded);
   };
+
+  const token = localStorage.getItem("token");
 
   return (
     <>
@@ -44,7 +46,11 @@ const Card = ({ product }) => {
               <div className="text-xs sm:text-xl md:text-xs line-through">
                 ₹1500
               </div>
-              <div className="font-semibold text-lg sm:text-3xl md:text-lg -mt-1">
+              <div
+                className={`font-semibold text-lg sm:text-3xl md:text-lg -mt-1  ${
+                  !token ? "blur-[3px]" : "blur-none"
+                }`}
+              >
                 ₹{product.price || "1234"}
               </div>
             </div>

@@ -9,6 +9,7 @@ import Cart from "./pages/Cart.jsx";
 import Product from "./pages/Product.jsx";
 import SubCategory from "./pages/SubCategory.jsx";
 import Footer from "./components/Footer.jsx";
+import PageByLabel from "./components/PageByLabel.jsx"
 import Wishlist from "./pages/Wishlist.jsx";
 import Category from "./pages/Category.jsx";
 import SignUp from "./pages/SignUp/SignUp.jsx";
@@ -40,12 +41,14 @@ const App = () => {
             <Route path="/product/:ProductId" element={<Product />} />
             <Route path="/:category/sub-category" element={<SubCategory />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/:label" element={<PageByLabel/>}/>
+
           </>
         ) : (
           <>
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
-
+            <Route path="/:label" element={<PageByLabel/>}/>
             <Route path="/categories" element={<Navigate to="/signup" />} />
             <Route path="/category/:categoryName" element={<Navigate to="/signup" />}/>
             <Route path="/cart" element={<Navigate to="/signup" />} />

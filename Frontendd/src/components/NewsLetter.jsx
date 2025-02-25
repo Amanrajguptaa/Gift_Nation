@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import index from "/assets/CtaBannerImg.png";
 
 const NewsLetter = () => {
+  const[email,setEmail] = useState("");
+
+  const onSubmitHandler = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post(
+      "http://localhost:8000/api/enquiry/add-enquiry",
+      { email}
+    );
+    setEmail('');
+    setMessage('');
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
   return (
     <div className="my-8 mx-4 sm:mx-8 lg:mx-20">
       <div className="main_ctr bg-[#111827] max-h-[250px] sm:h-[200px] lg:h-[300px] px-8 sm:px-12 lg:px-20 text-white py-16 lg:py-36 w-auto rounded-xl flex flex-row-reverse items-center justify-between gap-6">
@@ -13,14 +30,20 @@ const NewsLetter = () => {
             Subscribe to our newsletter for new gifts, festive sales launch,
             exclusive offers and more.
           </div>
-          <div className="flex gap-3">
+          <div>
+            <form className="flex gap-3 w-full">
             <input
+            onChange={(e)=>setEmail(e.target.value)}
               placeholder="Your email address"
               className="w-full text-sm px-6 py-3 rounded-md bg-[#1F2937] text-white"
             ></input>
-            <button className="w-full text-sm px-6 py-3 rounded-md bg-white/90 text-[#1F2937]">
+            <button
+            onSubmit={onSubmitHandler}
+            type="submit"
+             className="w-full text-sm px-6 py-3 rounded-md bg-white/90 text-[#1F2937]">
               Subscribe
             </button>
+            </form>
           </div>
         </div>
         <div className="right_ctr w-5/12 flex items-center justify-center">

@@ -2,11 +2,11 @@ import enquiryModel from "../models/enquiry.model.js";
 
 const addEnquiry = async (req, res) => {
   try {
-    const { email, message } = req.body;
-
+    const {name,email,query} = req.body;
     const enquiryData = {
+      name,
       email,
-      message,
+      query
     };
 
     const newEnquiry = new enquiryModel(enquiryData);

@@ -23,14 +23,14 @@ const SectionByLabel = ({ label, products }) => {
             </Link>
           );
         })}
-        {/* <Card />
-        <Card />
-        <Card /> */}
+
       </div>
+      <Link to={`/${label}`}>
       <div className="explore_btn flex items-center justify-center bg-[#e0e0e0] rounded-full font-semibold px-8 py-4 text-sm cursor-pointer hover:bg-[#d4d4d4] duration-200 ease-in-out">
         View All Gifts
         <span className="bi bi-arrow-right ml-2 flex items-center justify-center"></span>
       </div>
+      </Link>
     </div>
   );
 };
