@@ -13,7 +13,7 @@ const ShopContextProvider = (props) => {
 
 	const getUser = async () => {
 		try {
-			const url = `http://localhost:8000/auth/login/success`;
+			const url = `https://gift-nation.onrender.com/auth/login/success`;
 			const response = await axios.get(url, { withCredentials: true });
       setUser(response.data.user)
       localStorage.setItem('token',response.data.user.token)
