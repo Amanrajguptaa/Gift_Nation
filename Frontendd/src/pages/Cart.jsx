@@ -8,7 +8,7 @@ const Cart = () => {
   const [cartProducts, setCartProducts] = useState([]);
 
   useEffect(() => {
-    getUserCart(); // Fetch cart on mount
+    getUserCart();
   }, []);
 
   useEffect(() => {
@@ -84,7 +84,7 @@ const Cart = () => {
             key={item._id}
             className="bg-[#e0e0e0] w-full h-[175px] sm:h-[250px] md:h-[175px] p-4 rounded-lg flex items-center justify-center gap-4 relative"
           >
-            <button onClick={deleteCartItem(item._id)} className="bi bi-trash-fill absolute right-6 top-4 sm:text-2xl md:text-base cursor-pointer"></button>
+            <button onClick={()=>deleteCartItem(item._id)} className="bi bi-trash-fill absolute right-6 top-4 sm:text-2xl md:text-base cursor-pointer"></button>
             <img
               src={item.images[0]}
               alt={item.name}
