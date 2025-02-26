@@ -14,7 +14,7 @@ const SignUp = () => {
     try {
       e.preventDefault();
       const response = await axios.post(
-        "https://gift-nation.onrender.com/api/user/register",
+        "http://localhost:8000/api/user/register",
         { name, email, password }
       );
       console.log(response.data);
@@ -27,7 +27,7 @@ const SignUp = () => {
 
   const googleAuth = () => {
 	window.open(
-		`https://gift-nation.onrender.com/auth/google/callback`,
+		`http://localhost:8000/auth/google/callback`,
 		"_self"
 	);
 };

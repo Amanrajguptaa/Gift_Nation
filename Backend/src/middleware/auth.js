@@ -7,9 +7,7 @@ const authUser = async (req, res, next) => {
     if (!token) {
       return res.status(401).json({ message: "Unauthorized Access" });
     }
-
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
     req.body.userId = decoded.id;
     next();
   } catch (error) {

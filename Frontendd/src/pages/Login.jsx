@@ -12,7 +12,7 @@ const Login = () => {
     try {
       e.preventDefault();
       const response = await axios.post(
-        "https://gift-nation.onrender.com/api/user/login",
+        "http://localhost:8000/api/user/login",
         { email, password }
       );
       console.log(response.data);
@@ -25,7 +25,7 @@ const Login = () => {
 
   const googleAuth = () => {
     window.open(
-      `https://gift-nation.onrender.com/auth/google/callback`,
+      `http://localhost:8000/auth/google/callback`,
       "_self"
     );
   };
